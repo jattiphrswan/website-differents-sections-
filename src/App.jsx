@@ -39,6 +39,15 @@ import {
   Hero_LuminaSpatial,
   Hero_SaaSHyperScale
 } from './components/heroes';
+import {
+  About_Solace,
+  About_TeamTrust,
+  About_OrganicFarm,
+  About_DentalCare,
+  About_BlueHorizonPools,
+  About_VeganFusion,
+  About_ShoppableVideo
+} from './components/abouts';
 import { 
   Check, 
   Copy, 
@@ -54,7 +63,8 @@ import {
   SlidersHorizontal,
   Zap,
   Info,
-  Type
+  Type,
+  Heart
 } from 'lucide-react';
 
 const heroesList = [
@@ -403,16 +413,107 @@ const headersList = [
   },
 ];
 
+const aboutsList = [
+  {
+    id: 'about-bluehorizon',
+    name: 'Blue Horizon (Luxury Pools)',
+    tag: 'Aquatic Architecture',
+    highlight: 'Dual Pool Collage • Worry-Free Summer',
+    font: 'Plus Jakarta Sans',
+    colorScheme: 'Deep Azure & Mediterranean Sunlight',
+    description: 'High-end swimming pool architecture about section with dual resort deck & mosaic water collage, linear engineering icons, and design consultation drawer.',
+    component: About_BlueHorizonPools,
+    libraries: ['Motion', 'Lucide React', 'Tailwind CSS'],
+    interactivity: 'Click "Book Design Consultation" to explore pool shell specs (Infinity Edge, Indoor Spa, Thermal Plunge) and submit site survey.'
+  },
+  {
+    id: 'about-veganfusion',
+    name: 'Vegan Fusion (Plant Paradise)',
+    tag: 'Culinary & Vegan',
+    highlight: 'Orbital Concentric Plates • 3 Stats',
+    font: 'Plus Jakarta Sans',
+    colorScheme: 'Fresh Lime Green & Earthy Botanical',
+    description: 'Gourmet plant-based cafe about section featuring concentric orbital planetary dish rings, signature Buddha bowl, 3 big impact stats, and interactive tasting menu.',
+    component: About_VeganFusion,
+    libraries: ['Motion', 'Lucide React', 'Tailwind CSS'],
+    interactivity: 'Click any orbiting plant-based dish or "Know More ↗" to view dish tasting notes and nutritional benefits.'
+  },
+  {
+    id: 'about-shoppablevideo',
+    name: 'Shoppable Video (Boost Conversions)',
+    tag: 'E-Commerce SaaS',
+    highlight: 'Smartphone Mockup • Shoppable Drawer',
+    font: 'Plus Jakarta Sans',
+    colorScheme: 'Vibrant Emerald & Chic Monochrome',
+    description: 'High-converting interactive video commerce showcase with vertical smartphone reel mockup, instant in-video Add to Cart drawer, Trustpilot rating, and floating widget badges.',
+    component: About_ShoppableVideo,
+    libraries: ['Motion', 'Canvas-Confetti', 'Lucide React', 'Tailwind CSS'],
+    interactivity: 'Click "Shop Now" on the in-video drawer to add product and trigger confetti, toggle video tags (+Black, +Trouser), or test "Book A Demo".'
+  },
+  {
+    id: 'about-teamtrust',
+    name: 'Team Trust (Doing the Right Thing)',
+    tag: 'Corporate & Culture',
+    highlight: 'Team Huddle • Video Reel Play',
+    font: 'Plus Jakarta Sans',
+    colorScheme: 'Clean White, Amber & Emerald',
+    description: 'Corporate culture and ethics section with diverse team huddle photo, interactive play video reel modal, and growth & revenue transparency metric cards.',
+    component: About_TeamTrust,
+    libraries: ['Motion', 'Canvas-Confetti', 'Lucide React', 'Tailwind CSS'],
+    interactivity: 'Click central Play button to launch culture reel modal with audio toggle, click Growth or Revenue cards for internal promotion stats.'
+  },
+  {
+    id: 'about-organicfarm',
+    name: 'Organic Farm (Fresh & Bio-Dynamic)',
+    tag: 'Agriculture & Food',
+    highlight: '25-Year Badge • Dual Variant Switcher',
+    font: 'Plus Jakarta Sans',
+    colorScheme: 'Bio-Dynamic Leaf Green & Fresh Earth',
+    description: 'Heritage organic agriculture showcase with 25-year experience badge, customer counter, checkmark guarantees, and instant toggle between Farmer in Field and Harvest Strawberry Basket variants.',
+    component: About_OrganicFarm,
+    libraries: ['Motion', 'Lucide React', 'Tailwind CSS'],
+    interactivity: 'Toggle between "Farmer Variant" and "Harvest Variant" live in header, click "USDA Organic Certificate" for soil and purity standards modal.'
+  },
+  {
+    id: 'about-dentalcare',
+    name: 'London Dental (Restoring Smiles)',
+    tag: 'Healthcare & Clinic',
+    highlight: 'Dual-Photo Collage • Wayne Chirisa Quote',
+    font: 'Plus Jakarta Sans',
+    colorScheme: 'Harley Street Cyan & Deep Navy',
+    description: 'Prestigious healthcare and dental practice about section with multi-photo offset collage, cyan geometric accents, Wayne Chirisa testimonial quote card, and instant consultation scheduling.',
+    component: About_DentalCare,
+    libraries: ['Motion', 'Lucide React', 'Tailwind CSS'],
+    interactivity: 'Click "READ MORE" or "Book Consultation" to open Harley Street practice credentials and test the 1-click consultation scheduler.'
+  },
+  {
+    id: 'about-solace',
+    name: 'Solace (Where Smiles Blossom)',
+    tag: 'Community & Wellness',
+    highlight: 'Dual Cards • Overlaid Badge',
+    font: 'Plus Jakarta Sans',
+    colorScheme: 'Warm Natural Light & Royal Indigo',
+    description: 'Empowering wellness about section with photorealistic family moments, overlaid 350+ community counter badge, interactive mood blossom explorer, and dual privacy & accessibility cards.',
+    component: About_Solace,
+    libraries: ['Motion', 'Canvas-Confetti', 'Lucide React', 'Tailwind CSS'],
+    interactivity: 'Click "Read More →" for the story & interactive mood blossoms, click the community badge for member spotlight and live confetti celebration, or click either feature card for privacy and accessibility specifications.'
+  }
+];
+
 export function App() {
-  const [activeTab, setActiveTab] = useState('heroes'); // 'heroes' | 'headers' | 'pair'
+  const [activeTab, setActiveTab] = useState('abouts'); // 'abouts' | 'heroes' | 'headers' | 'pair'
   const [selectedHeroId, setSelectedHeroId] = useState('hero-firsttransport');
   const [selectedHeaderId, setSelectedHeaderId] = useState('header-deepersignals');
+  const [selectedAboutId, setSelectedAboutId] = useState('about-bluehorizon');
   const [viewMode, setViewMode] = useState('single'); // 'single' | 'all'
   const [deviceSize, setDeviceSize] = useState('desktop'); // 'desktop' | 'tablet' | 'mobile'
   const [copied, setCopied] = useState(false);
 
   const activeHero = heroesList.find((h) => h.id === selectedHeroId) || heroesList[0];
   const ActiveHeroComponent = activeHero.component;
+
+  const activeAbout = aboutsList.find((a) => a.id === selectedAboutId) || aboutsList[0];
+  const ActiveAboutComponent = activeAbout.component;
 
   const activeHeader = headersList.find((h) => h.id === selectedHeaderId) || headersList[0];
   const ActiveHeaderComponent = activeHeader.component;
@@ -421,7 +522,9 @@ export function App() {
 
   const handleCopyCode = () => {
     let code = '';
-    if (activeTab === 'heroes') {
+    if (activeTab === 'abouts') {
+      code = `import { ${activeAbout.component.name} } from './components/abouts';\n\n// Typography: ${activeAbout.font}\n// Color Scheme: ${activeAbout.colorScheme}\n<${activeAbout.component.name} />`;
+    } else if (activeTab === 'heroes') {
       code = `import { ${activeHero.component.name} } from './components/heroes';\n\n// Typography: ${activeHero.font}\n// Color Scheme: ${activeHero.colorScheme}\n<${activeHero.component.name} />`;
     } else {
       code = `import { ${activeHeader.component.name} } from './components/headers';\n\n<${activeHeader.component.name} />`;
@@ -451,7 +554,7 @@ export function App() {
               <h1 className="text-base font-extrabold text-white leading-tight flex items-center gap-2">
                 Responsive Hero & Header Studio
                 <span className="text-[11px] font-bold bg-blue-500/20 text-blue-300 px-2.5 py-0.5 rounded-full border border-blue-500/30">
-                  {heroesList.length} Heroes • Human Design • Custom Fonts
+                  {heroesList.length} Heroes • {headersList.length} Headers • {aboutsList.length} About
                 </span>
               </h1>
               <p className="text-xs text-slate-400 font-medium">
@@ -461,7 +564,25 @@ export function App() {
           </div>
 
           {/* Main Studio Navigation Switcher */}
-          <div className="flex items-center bg-black/40 p-1.5 rounded-2xl border border-white/10 shadow-inner">
+          <div className="flex items-center bg-black/40 p-1.5 rounded-2xl border border-white/10 shadow-inner flex-wrap gap-1">
+            <button
+              onClick={() => {
+                setActiveTab('abouts');
+                setViewMode('single');
+              }}
+              className={`px-3.5 py-1.5 rounded-xl text-xs font-bold transition flex items-center gap-1.5 cursor-pointer ${
+                activeTab === 'abouts'
+                  ? 'bg-gradient-to-r from-indigo-600 to-blue-600 text-white shadow-lg shadow-indigo-600/30'
+                  : 'text-slate-400 hover:text-white'
+              }`}
+            >
+              <Heart className="w-3.5 h-3.5" />
+              <span>About Sections ({aboutsList.length})</span>
+              <span className="text-[10px] bg-rose-500 text-white px-1.5 py-0.2 rounded-full font-extrabold animate-pulse">
+                NEW
+              </span>
+            </button>
+
             <button
               onClick={() => {
                 setActiveTab('heroes');
@@ -587,6 +708,36 @@ export function App() {
         </div>
 
         {/* Tab-Specific Sub-Nav Pills */}
+        {activeTab === 'abouts' && viewMode === 'single' && (
+          <div className="max-w-7xl mx-auto mt-3 pt-3 border-t border-white/10 flex items-center gap-2 overflow-x-auto pb-1 scrollbar-none">
+            {aboutsList.map((about) => {
+              const isSelected = selectedAboutId === about.id;
+              return (
+                <button
+                  key={about.id}
+                  onClick={() => setSelectedAboutId(about.id)}
+                  className={`whitespace-nowrap px-4 py-1.5 rounded-full text-xs font-bold transition-all flex items-center gap-2 cursor-pointer ${
+                    isSelected
+                      ? 'bg-indigo-600 text-white shadow-lg shadow-indigo-600/30 scale-105'
+                      : 'bg-slate-900/80 hover:bg-slate-800 text-slate-300 border border-white/10'
+                  }`}
+                >
+                  <span>{about.name}</span>
+                  <span
+                    className={`text-[10px] px-2 py-0.5 rounded-full font-extrabold ${
+                      isSelected
+                        ? 'bg-white text-indigo-900'
+                        : 'bg-white/10 text-indigo-300'
+                    }`}
+                  >
+                    {about.highlight}
+                  </span>
+                </button>
+              );
+            })}
+          </div>
+        )}
+
         {activeTab === 'heroes' && viewMode === 'single' && (
           <div className="max-w-7xl mx-auto mt-3 pt-3 border-t border-white/10 flex items-center gap-2 overflow-x-auto pb-1 scrollbar-none">
             {heroesList.map((hero) => {
@@ -644,6 +795,104 @@ export function App() {
 
       {/* Main Content Area */}
       <main className="flex-1 max-w-7xl w-full mx-auto p-4 sm:p-8 flex flex-col gap-8">
+        {/* TAB 0: ABOUT SECTIONS SHOWCASE */}
+        {activeTab === 'abouts' && (
+          viewMode === 'single' ? (
+            <div className="flex flex-col gap-6">
+              {/* Human Typography & Color Metadata Banner */}
+              <div className="bg-[#161b26] border border-white/10 rounded-2xl p-5 flex flex-col md:flex-row items-start md:items-center justify-between gap-4 shadow-xl">
+                <div>
+                  <div className="flex flex-wrap items-center gap-2">
+                    <h2 className="text-xl font-extrabold text-white">
+                      {activeAbout.name}
+                    </h2>
+                    <span className="px-2.5 py-0.5 rounded-full text-xs font-bold bg-indigo-500/20 text-indigo-300 border border-indigo-500/30">
+                      {activeAbout.tag}
+                    </span>
+                    <span className="px-2.5 py-0.5 rounded-full text-xs font-bold bg-emerald-500/20 text-emerald-300 border border-emerald-500/30">
+                      {activeAbout.highlight}
+                    </span>
+                  </div>
+                  <p className="text-xs text-slate-400 mt-1.5 max-w-3xl leading-relaxed">
+                    {activeAbout.description}
+                  </p>
+                </div>
+
+                {/* Typography and Colors Specs */}
+                <div className="flex flex-col items-start md:items-end gap-2 shrink-0">
+                  <div className="flex items-center gap-1.5 text-xs text-slate-300 font-medium">
+                    <Type className="w-3.5 h-3.5 text-indigo-400" />
+                    <span>Font: <strong className="text-white">{activeAbout.font}</strong></span>
+                  </div>
+                  <div className="flex items-center gap-1.5 text-xs text-slate-400">
+                    <span className="w-2.5 h-2.5 rounded-full bg-indigo-500" />
+                    <span>Colors: {activeAbout.colorScheme}</span>
+                  </div>
+                </div>
+              </div>
+
+              {/* Working Interactivity Hint */}
+              <div className="bg-gradient-to-r from-indigo-950/60 via-slate-900 to-blue-950/60 border border-indigo-500/20 rounded-2xl p-3 flex items-center gap-3 text-xs text-indigo-200">
+                <div className="w-7 h-7 rounded-lg bg-indigo-500/20 flex items-center justify-center shrink-0">
+                  <Sparkles className="w-4 h-4 text-indigo-400" />
+                </div>
+                <span>
+                  <strong>Interactive Real Human Elements:</strong> {activeAbout.interactivity}
+                </span>
+              </div>
+
+              {/* The About Preview Container */}
+              <div className="w-full flex justify-center">
+                <div className={`transition-all duration-300 w-full ${getContainerWidth()}`}>
+                  <ActiveAboutComponent isMobile={isForcedMobile} />
+                </div>
+              </div>
+            </div>
+          ) : (
+            /* View All Abouts */
+            <div className="flex flex-col gap-14">
+              <div className="flex items-center justify-between">
+                <div>
+                  <h2 className="text-2xl font-black text-white">All {aboutsList.length} Responsive About Section</h2>
+                  <p className="text-sm text-slate-400">
+                    Human-centered layouts crafted for storytelling, emotional resonance, and trust.
+                  </p>
+                </div>
+              </div>
+
+              {aboutsList.map((about, idx) => {
+                const AboutComp = about.component;
+                return (
+                  <div key={about.id} className="bg-[#161b26] border border-white/10 rounded-3xl p-6 shadow-2xl space-y-4">
+                    <div className="flex flex-wrap items-center justify-between gap-3 pb-3 border-b border-white/10">
+                      <div className="flex items-center gap-3">
+                        <span className="w-7 h-7 rounded-xl bg-indigo-600 text-white font-extrabold text-xs flex items-center justify-center">
+                          {idx + 1}
+                        </span>
+                        <div>
+                          <h3 className="text-lg font-bold text-white">{about.name}</h3>
+                          <p className="text-xs text-slate-400">{about.font} • {about.colorScheme}</p>
+                        </div>
+                      </div>
+                      <div className="flex items-center gap-2">
+                        {about.libraries.map((lib) => (
+                          <span key={lib} className="text-[10px] font-mono bg-black/60 text-indigo-300 px-2 py-0.5 rounded border border-white/10">
+                            {lib}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+
+                    <div className={`mx-auto ${getContainerWidth()}`}>
+                      <AboutComp isMobile={isForcedMobile} />
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          )
+        )}
+
         {/* TAB 1: HEROES SHOWCASE */}
         {activeTab === 'heroes' && (
           viewMode === 'single' ? (
@@ -812,7 +1061,7 @@ export function App() {
               <div>
                 <h2 className="text-lg font-bold text-white flex items-center gap-2">
                   <Layers className="w-5 h-5 text-purple-400" />
-                  Pair Any Header with Any Hero Section
+                  Pair Any Header with Any Hero or About Section
                 </h2>
                 <p className="text-xs text-slate-400 mt-1">
                   Test layouts, visual contrast, brand alignments, and responsive composition.
@@ -837,19 +1086,35 @@ export function App() {
                   </select>
                 </div>
 
-                {/* Select Hero */}
+                {/* Section Target Switcher: Hero or About */}
                 <div className="flex items-center gap-2 text-xs">
-                  <span className="text-slate-400 font-semibold">Hero:</span>
+                  <span className="text-slate-400 font-semibold">Section:</span>
                   <select
-                    value={selectedHeroId}
-                    onChange={(e) => setSelectedHeroId(e.target.value)}
+                    value={selectedAboutId ? `about:${selectedAboutId}` : `hero:${selectedHeroId}`}
+                    onChange={(e) => {
+                      const val = e.target.value;
+                      if (val.startsWith('about:')) {
+                        setSelectedAboutId(val.replace('about:', ''));
+                      } else {
+                        setSelectedHeroId(val.replace('hero:', ''));
+                      }
+                    }}
                     className="bg-slate-900 border border-white/20 rounded-xl px-3 py-1.5 text-xs text-white focus:outline-none focus:border-blue-400 cursor-pointer"
                   >
-                    {heroesList.map((h) => (
-                      <option key={h.id} value={h.id}>
-                        {h.name}
-                      </option>
-                    ))}
+                    <optgroup label="✨ About Sections (NEW)">
+                      {aboutsList.map((a) => (
+                        <option key={a.id} value={`about:${a.id}`}>
+                          {a.name}
+                        </option>
+                      ))}
+                    </optgroup>
+                    <optgroup label="⚡ Hero Sections">
+                      {heroesList.map((h) => (
+                        <option key={h.id} value={`hero:${h.id}`}>
+                          {h.name}
+                        </option>
+                      ))}
+                    </optgroup>
                   </select>
                 </div>
               </div>
@@ -861,7 +1126,11 @@ export function App() {
                 <ActiveHeaderComponent forcedMobile={isForcedMobile} />
               </div>
               <div className="rounded-2xl overflow-hidden shadow-2xl">
-                <ActiveHeroComponent />
+                {selectedAboutId ? (
+                  <ActiveAboutComponent isMobile={isForcedMobile} />
+                ) : (
+                  <ActiveHeroComponent isMobile={isForcedMobile} />
+                )}
               </div>
             </div>
           </div>
@@ -872,7 +1141,7 @@ export function App() {
       <footer className="mt-auto py-8 border-t border-white/10 bg-[#161b26] text-center text-xs text-slate-500">
         <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between px-4 sm:px-8 gap-4">
           <span>Human-Crafted Hero & Header Collection • React 19, Motion, Three.js & Tailwind CSS</span>
-          <span className="text-blue-400 font-mono">13 Interactive Heroes • 23 Responsive Headers</span>
+          <span className="text-blue-400 font-mono">13 Interactive Heroes • 23 Headers • 1 About Section</span>
         </div>
       </footer>
     </div>
