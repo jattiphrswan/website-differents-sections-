@@ -24,7 +24,7 @@ echo.
 echo ========================================================
 echo   SUCCESS! Deployment complete!
 echo   Your live website link:
-echo   https://jattiphrswan.github.io/HEADER/
+echo   https://jattiphrswan.github.io/website-differents-sections-/
 echo ========================================================
 echo.
 pause
