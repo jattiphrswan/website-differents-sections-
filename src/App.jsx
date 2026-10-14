@@ -70,6 +70,10 @@ import {
   Testimonials_SkincareSplit,
   Testimonials_WorldMapCustomers,
   Testimonials_DarkRedStars,
+  Testimonials_StaggeredJourney,
+  Testimonials_ValuedBlue,
+  Testimonials_RedBadgeCards,
+  Testimonials_EditorialClientStories,
   Testimonials_VideoBento,
   Testimonials_WallOfLove
 } from './components/testimonials';
@@ -166,6 +170,54 @@ const testimonialsList = [
     component: Testimonials_DarkRedStars,
     libraries: ['Motion', 'Canvas-Confetti', 'Lucide React', 'Tailwind CSS'],
     interactivity: 'Click any of the 6 design cards to inspect cryptographic review proofs and upvote reviews with live confetti.'
+  },
+  {
+    id: 'testimonials-staggered',
+    name: 'Journey Through Testimonials (Staggered Bento)',
+    tag: 'Bento & Metrics',
+    highlight: 'Staggered Floating Cards • Gradient Stripe',
+    font: 'Plus Jakarta Sans',
+    colorScheme: 'Clean White, Vibrant Purple & Orange',
+    description: 'Interactive staggered floating cards with purple-to-blue gradient accent borders, dotted map backdrop, rapid ROI metrics, and full case study modals.',
+    component: Testimonials_StaggeredJourney,
+    libraries: ['Motion', 'Canvas-Confetti', 'Lucide React', 'Tailwind CSS'],
+    interactivity: 'Click any card to shift active purple gradient highlight and open verified customer case study modal.'
+  },
+  {
+    id: 'testimonials-valuedblue',
+    name: 'Valued Customers (Royal Blue Dual Cards)',
+    tag: 'Enterprise Trust',
+    highlight: 'Overlapping Blue Badges • Trust Index Modal',
+    font: 'Plus Jakarta Sans',
+    colorScheme: 'Pure White & Royal Blue',
+    description: 'Clean dual horizontal card section with overlapping royal blue quote badges, decorative orange waves, and customer trust index report modal.',
+    component: Testimonials_ValuedBlue,
+    libraries: ['Motion', 'Canvas-Confetti', 'Lucide React', 'Tailwind CSS'],
+    interactivity: 'Click "Read More >" to launch Customer Trust Index with 1,200+ enterprise metrics, or click cards for demonstrated outcomes.'
+  },
+  {
+    id: 'testimonials-redbadge',
+    name: 'Words from Our Customers (Red Bubble 3-Card)',
+    tag: 'High-Impact Social Proof',
+    highlight: 'Red Quote Badges • Catchy Sub-Headings',
+    font: 'Plus Jakarta Sans',
+    colorScheme: 'Clean White & Crimson Red',
+    description: 'Centered red quotation bubble badges with bold catchy sub-headings (“Superb Service!”, “Amazing Job!”, “Brilliant Work!”) and author role cards.',
+    component: Testimonials_RedBadgeCards,
+    libraries: ['Motion', 'Canvas-Confetti', 'Lucide React', 'Tailwind CSS'],
+    interactivity: 'Click any card to launch the customer praise feedback modal with live celebration confetti and helpful votes.'
+  },
+  {
+    id: 'testimonials-editorialstories',
+    name: 'Client Stories (Editorial Slate & Lookbook)',
+    tag: 'Luxury & Architecture',
+    highlight: 'Cool Slate Backdrop • Monograph Modal',
+    font: 'Playfair Display + Plus Jakarta Sans',
+    colorScheme: 'Cool Slate (#EAEFF2), Charcoal & Pure White',
+    description: 'High-end architectural client stories on muted slate-grey background, dark slate quotes, editorial typography, and monograph lookbook modal.',
+    component: Testimonials_EditorialClientStories,
+    libraries: ['Motion', 'Canvas-Confetti', 'Lucide React', 'Tailwind CSS'],
+    interactivity: 'Click "Discover More" to open the Client Stories Anthology monograph archive with physical lookbook request.'
   },
   {
     id: 'testimonials-videobento',
