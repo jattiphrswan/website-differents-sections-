@@ -5,3 +5,6 @@ export { About_DentalCare } from './About_DentalCare';
 export { About_BlueHorizonPools } from './About_BlueHorizonPools';
 export { About_VeganFusion } from './About_VeganFusion';
 export { About_ShoppableVideo } from './About_ShoppableVideo';
+export { About_ImpactfulStories } from './About_ImpactfulStories';
+export { About_GlowCosmetics } from './About_GlowCosmetics';
+export { About_LondonSEO } from './About_LondonSEO';

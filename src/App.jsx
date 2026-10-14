@@ -46,7 +46,10 @@ import {
   About_DentalCare,
   About_BlueHorizonPools,
   About_VeganFusion,
-  About_ShoppableVideo
+  About_ShoppableVideo,
+  About_ImpactfulStories,
+  About_GlowCosmetics,
+  About_LondonSEO
 } from './components/abouts';
 import { 
   Check, 
@@ -415,6 +418,42 @@ const headersList = [
 
 const aboutsList = [
   {
+    id: 'about-impactstories',
+    name: 'Impact Stories (Inspiring Audiences)',
+    tag: 'Advertising & Media',
+    highlight: 'Megaphone Leap • 400K Impressions',
+    font: 'Plus Jakarta Sans',
+    colorScheme: 'Mint Fresh & Forest Pine',
+    description: 'Dynamic advertising and media solutions about section featuring energetic megaphone brand advocate, interactive live campaign performance metrics, and top partner ecosystem.',
+    component: About_ImpactfulStories,
+    libraries: ['Motion', 'Canvas-Confetti', 'Lucide React', 'Tailwind CSS'],
+    interactivity: 'Click Megaphone or "Click to Shout!" for live audio chime & celebration bubbles, click floating metrics to cycle live campaign modes, test "Get Started" ROI calculator or "Learn More" 4-pillar methodology.'
+  },
+  {
+    id: 'about-glowcosmetics',
+    name: 'Aura Glow (Botanical Skincare)',
+    tag: 'Beauty & Skincare',
+    highlight: 'Peony Serum Collage • 50% OFF',
+    font: 'Plus Jakarta Sans',
+    colorScheme: 'Dusty Rose & Soft Peony',
+    description: 'Clean botanical skincare ritual section with 3-photo peony & cosmetic jars collage, floating 30,000+ happy client counter, 50% OFF promo code copier, quick shop bag drawer, and interactive emoji ratings.',
+    component: About_GlowCosmetics,
+    libraries: ['Motion', 'Canvas-Confetti', 'Lucide React', 'Tailwind CSS'],
+    interactivity: 'Click "Buy now" for quick shop drawer with 50% discount & bag counter, click "50% OFF" to copy code, click customer review emojis, or click "EXPLORE MORE" for botanical lab standards.'
+  },
+  {
+    id: 'about-londonseo',
+    name: 'London SEO (Top Rated Agency)',
+    tag: 'Search & Growth SaaS',
+    highlight: 'Interactive Analytics • $50K Budget',
+    font: 'Plus Jakarta Sans',
+    colorScheme: 'Electric Royal Blue & Clean White',
+    description: 'Data-driven search dominance about section featuring layered analytics dashboard, 48% money saved circular donut progress ring, monthly click surge bar chart, and instant domain SEO auditor.',
+    component: About_LondonSEO,
+    libraries: ['Motion', 'Canvas-Confetti', 'Lucide React', 'Tailwind CSS'],
+    interactivity: 'Click bar chart months to view keyword traffic, click donut chart center to toggle ROI mode, click "View Full Report" for PPC comparison, or test "MORE ABOUT US" for free London SEO domain audit.'
+  },
+  {
     id: 'about-bluehorizon',
     name: 'Blue Horizon (Luxury Pools)',
     tag: 'Aquatic Architecture',
@@ -504,7 +543,7 @@ export function App() {
   const [activeTab, setActiveTab] = useState('abouts'); // 'abouts' | 'heroes' | 'headers' | 'pair'
   const [selectedHeroId, setSelectedHeroId] = useState('hero-firsttransport');
   const [selectedHeaderId, setSelectedHeaderId] = useState('header-deepersignals');
-  const [selectedAboutId, setSelectedAboutId] = useState('about-bluehorizon');
+  const [selectedAboutId, setSelectedAboutId] = useState('about-glowcosmetics');
   const [viewMode, setViewMode] = useState('single'); // 'single' | 'all'
   const [deviceSize, setDeviceSize] = useState('desktop'); // 'desktop' | 'tablet' | 'mobile'
   const [copied, setCopied] = useState(false);
