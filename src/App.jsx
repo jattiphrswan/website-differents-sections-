@@ -63,6 +63,11 @@ import {
   Cards_TherapyWellness,
   Cards_LuxuryRealEstate
 } from './components/cards';
+import {
+  Testimonials_RibbonCards,
+  Testimonials_VideoBento,
+  Testimonials_WallOfLove
+} from './components/testimonials';
 import { 
   Check, 
   Copy, 
@@ -80,8 +85,48 @@ import {
   Zap,
   Info,
   Type,
-  Heart
+  Heart,
+  MessageSquareQuote
 } from 'lucide-react';
+
+const testimonialsList = [
+  {
+    id: 'testimonials-ribboncards',
+    name: 'Customer Testimonials (Red Folded Ribbon)',
+    tag: 'Social Proof & Logistics',
+    highlight: 'Folded Red Ribbons • Verified Audio Modal',
+    font: 'Plus Jakarta Sans',
+    colorScheme: 'Crimson Red, Warm Amber & High-Key Transport',
+    description: 'Clean customer testimonials section with folded 3D crimson bookmark ribbons, 5-star ratings, warm amber author pills with circular avatars, and high-key transportation backdrop.',
+    component: Testimonials_RibbonCards,
+    libraries: ['Motion', 'Canvas-Confetti', 'Lucide React', 'Tailwind CSS'],
+    interactivity: 'Click any card to open the verified review modal with full case study, audio waveform quote player, and interactive helpful counter.'
+  },
+  {
+    id: 'testimonials-videobento',
+    name: 'Video Case Studies (Dark Bento)',
+    tag: 'Modern SaaS Grid',
+    highlight: 'Bento Grid • 4K Video Case Study Player',
+    font: 'Plus Jakarta Sans',
+    colorScheme: 'Obsidian Noir & Electric Indigo',
+    description: 'Executive video testimonials with interactive category filter tabs (Founders, Engineering, Design, Enterprise), verified ROI metrics, and 4K video player modal.',
+    component: Testimonials_VideoBento,
+    libraries: ['Motion', 'Canvas-Confetti', 'Lucide React', 'Tailwind CSS'],
+    interactivity: 'Click category pills to filter testimonials, or click video play badges to launch simulated 4K case study video player.'
+  },
+  {
+    id: 'testimonials-walloflove',
+    name: 'Wall of Love (Verified Social Masonry)',
+    tag: 'Community & Trust',
+    highlight: 'Live Search • + Share Your Story Modal',
+    font: 'Plus Jakarta Sans',
+    colorScheme: 'Rose & Crisp White',
+    description: 'Social proof masonry grid with live interactive search filter, instant heart like counters, and modal to submit verified community feedback.',
+    component: Testimonials_WallOfLove,
+    libraries: ['Motion', 'Canvas-Confetti', 'Lucide React', 'Tailwind CSS'],
+    interactivity: 'Search reviews live by keyword or tag, click hearts to upvote reviews, and click "+ Share Your Story" to submit a testimonial with confetti.'
+  }
+];
 
 const heroesList = [
   {
@@ -676,7 +721,8 @@ const cardsList = [
 ];
 
 export function App() {
-  const [activeTab, setActiveTab] = useState('cards'); // 'cards' | 'abouts' | 'heroes' | 'headers' | 'pair'
+  const [activeTab, setActiveTab] = useState('testimonials'); // 'testimonials' | 'cards' | 'abouts' | 'heroes' | 'headers' | 'pair'
+  const [selectedTestimonialId, setSelectedTestimonialId] = useState('testimonials-ribboncards');
   const [selectedHeroId, setSelectedHeroId] = useState('hero-firsttransport');
   const [selectedHeaderId, setSelectedHeaderId] = useState('header-deepersignals');
   const [selectedAboutId, setSelectedAboutId] = useState('about-glowcosmetics');
@@ -684,6 +730,9 @@ export function App() {
   const [viewMode, setViewMode] = useState('single'); // 'single' | 'all'
   const [deviceSize, setDeviceSize] = useState('desktop'); // 'desktop' | 'tablet' | 'mobile'
   const [copied, setCopied] = useState(false);
+
+  const activeTestimonial = testimonialsList.find((t) => t.id === selectedTestimonialId) || testimonialsList[0];
+  const ActiveTestimonialComponent = activeTestimonial.component;
 
   const activeHero = heroesList.find((h) => h.id === selectedHeroId) || heroesList[0];
   const ActiveHeroComponent = activeHero.component;
@@ -701,7 +750,9 @@ export function App() {
 
   const handleCopyCode = () => {
     let code = '';
-    if (activeTab === 'cards') {
+    if (activeTab === 'testimonials') {
+      code = `import { ${activeTestimonial.component.name} } from './components/testimonials';\n\n// Typography: ${activeTestimonial.font}\n// Color Scheme: ${activeTestimonial.colorScheme}\n<${activeTestimonial.component.name} />`;
+    } else if (activeTab === 'cards') {
       code = `import { ${activeCard.component.name} } from './components/cards';\n\n// Typography: ${activeCard.font}\n// Color Scheme: ${activeCard.colorScheme}\n<${activeCard.component.name} />`;
     } else if (activeTab === 'abouts') {
       code = `import { ${activeAbout.component.name} } from './components/abouts';\n\n// Typography: ${activeAbout.font}\n// Color Scheme: ${activeAbout.colorScheme}\n<${activeAbout.component.name} />`;
@@ -735,7 +786,7 @@ export function App() {
               <h1 className="text-base font-extrabold text-white leading-tight flex items-center gap-2">
                 Responsive Hero &amp; Header Studio
                 <span className="text-[11px] font-bold bg-blue-500/20 text-blue-300 px-2.5 py-0.5 rounded-full border border-blue-500/30">
-                  {cardsList.length} Cards • {aboutsList.length} About • {heroesList.length} Heroes • {headersList.length} Headers
+                  {testimonialsList.length} Testimonials • {cardsList.length} Cards • {aboutsList.length} About • {heroesList.length} Heroes • {headersList.length} Headers
                 </span>
               </h1>
               <p className="text-xs text-slate-400 font-medium">
@@ -746,6 +797,24 @@ export function App() {
 
           {/* Main Studio Navigation Switcher */}
           <div className="flex items-center bg-black/40 p-1.5 rounded-2xl border border-white/10 shadow-inner flex-wrap gap-1">
+            <button
+              onClick={() => {
+                setActiveTab('testimonials');
+                setViewMode('single');
+              }}
+              className={`px-3.5 py-1.5 rounded-xl text-xs font-bold transition flex items-center gap-1.5 cursor-pointer ${
+                activeTab === 'testimonials'
+                  ? 'bg-gradient-to-r from-red-600 via-rose-600 to-amber-600 text-white shadow-lg shadow-red-600/30'
+                  : 'text-slate-400 hover:text-white'
+              }`}
+            >
+              <MessageSquareQuote className="w-3.5 h-3.5" />
+              <span>Testimonials ({testimonialsList.length})</span>
+              <span className="text-[10px] bg-red-500 text-white px-1.5 py-0.2 rounded-full font-extrabold animate-pulse">
+                NEW
+              </span>
+            </button>
+
             <button
               onClick={() => {
                 setActiveTab('cards');
@@ -759,9 +828,6 @@ export function App() {
             >
               <LayoutGrid className="w-3.5 h-3.5" />
               <span>Card Sections ({cardsList.length})</span>
-              <span className="text-[10px] bg-emerald-500 text-white px-1.5 py-0.2 rounded-full font-extrabold animate-pulse">
-                NEW
-              </span>
             </button>
 
             <button
@@ -904,6 +970,36 @@ export function App() {
         </div>
 
         {/* Tab-Specific Sub-Nav Pills */}
+        {activeTab === 'testimonials' && viewMode === 'single' && (
+          <div className="max-w-7xl mx-auto mt-3 pt-3 border-t border-white/10 flex items-center gap-2 overflow-x-auto pb-1 scrollbar-none">
+            {testimonialsList.map((item) => {
+              const isSelected = selectedTestimonialId === item.id;
+              return (
+                <button
+                  key={item.id}
+                  onClick={() => setSelectedTestimonialId(item.id)}
+                  className={`whitespace-nowrap px-4 py-1.5 rounded-full text-xs font-bold transition-all flex items-center gap-2 cursor-pointer ${
+                    isSelected
+                      ? 'bg-red-600 text-white shadow-lg shadow-red-600/30 scale-105'
+                      : 'bg-slate-900/80 hover:bg-slate-800 text-slate-300 border border-white/10'
+                  }`}
+                >
+                  <span>{item.name}</span>
+                  <span
+                    className={`text-[10px] px-2 py-0.5 rounded-full font-extrabold ${
+                      isSelected
+                        ? 'bg-white text-red-900'
+                        : 'bg-white/10 text-red-300'
+                    }`}
+                  >
+                    {item.highlight}
+                  </span>
+                </button>
+              );
+            })}
+          </div>
+        )}
+
         {activeTab === 'cards' && viewMode === 'single' && (
           <div className="max-w-7xl mx-auto mt-3 pt-3 border-t border-white/10 flex items-center gap-2 overflow-x-auto pb-1 scrollbar-none">
             {cardsList.map((card) => {
@@ -1021,6 +1117,104 @@ export function App() {
 
       {/* Main Content Area */}
       <main className="flex-1 max-w-7xl w-full mx-auto p-4 sm:p-8 flex flex-col gap-8">
+        {/* TAB: TESTIMONIALS SHOWCASE */}
+        {activeTab === 'testimonials' && (
+          viewMode === 'single' ? (
+            <div className="flex flex-col gap-6">
+              {/* Human Typography & Color Metadata Banner */}
+              <div className="bg-[#161b26] border border-white/10 rounded-2xl p-5 flex flex-col md:flex-row items-start md:items-center justify-between gap-4 shadow-xl">
+                <div>
+                  <div className="flex flex-wrap items-center gap-2">
+                    <h2 className="text-xl font-extrabold text-white">
+                      {activeTestimonial.name}
+                    </h2>
+                    <span className="px-2.5 py-0.5 rounded-full text-xs font-bold bg-red-500/20 text-red-300 border border-red-500/30">
+                      {activeTestimonial.tag}
+                    </span>
+                    <span className="px-2.5 py-0.5 rounded-full text-xs font-bold bg-amber-500/20 text-amber-300 border border-amber-500/30">
+                      {activeTestimonial.highlight}
+                    </span>
+                  </div>
+                  <p className="text-xs text-slate-400 mt-1.5 max-w-3xl leading-relaxed">
+                    {activeTestimonial.description}
+                  </p>
+                </div>
+
+                {/* Typography and Colors Specs */}
+                <div className="flex flex-col items-start md:items-end gap-2 shrink-0">
+                  <div className="flex items-center gap-1.5 text-xs text-slate-300 font-medium">
+                    <Type className="w-3.5 h-3.5 text-red-400" />
+                    <span>Font: <strong className="text-white">{activeTestimonial.font}</strong></span>
+                  </div>
+                  <div className="flex items-center gap-1.5 text-xs text-slate-400">
+                    <span className="w-2.5 h-2.5 rounded-full bg-red-500" />
+                    <span>Colors: {activeTestimonial.colorScheme}</span>
+                  </div>
+                </div>
+              </div>
+
+              {/* Working Interactivity Hint */}
+              <div className="bg-gradient-to-r from-red-950/60 via-slate-900 to-amber-950/60 border border-red-500/20 rounded-2xl p-3 flex items-center gap-3 text-xs text-red-200">
+                <div className="w-7 h-7 rounded-lg bg-red-500/20 flex items-center justify-center shrink-0">
+                  <Sparkles className="w-4 h-4 text-red-400" />
+                </div>
+                <span>
+                  <strong>Interactive Real Human Elements:</strong> {activeTestimonial.interactivity}
+                </span>
+              </div>
+
+              {/* The Testimonial Section Preview Container */}
+              <div className="w-full flex justify-center">
+                <div className={`transition-all duration-300 w-full ${getContainerWidth()}`}>
+                  <ActiveTestimonialComponent isMobile={isForcedMobile} />
+                </div>
+              </div>
+            </div>
+          ) : (
+            /* View All Testimonials */
+            <div className="flex flex-col gap-14">
+              <div className="flex items-center justify-between">
+                <div>
+                  <h2 className="text-2xl font-black text-white">All {testimonialsList.length} Responsive Testimonial Sections</h2>
+                  <p className="text-sm text-slate-400">
+                    Folded ribbon customer reviews, dark bento video case studies, and social proof masonry walls.
+                  </p>
+                </div>
+              </div>
+
+              {testimonialsList.map((testim, idx) => {
+                const TestimComp = testim.component;
+                return (
+                  <div key={testim.id} className="bg-[#161b26] border border-white/10 rounded-3xl p-6 shadow-2xl space-y-4">
+                    <div className="flex flex-wrap items-center justify-between gap-3 pb-3 border-b border-white/10">
+                      <div className="flex items-center gap-3">
+                        <span className="w-7 h-7 rounded-xl bg-red-600 text-white font-extrabold text-xs flex items-center justify-center">
+                          {idx + 1}
+                        </span>
+                        <div>
+                          <h3 className="text-lg font-bold text-white">{testim.name}</h3>
+                          <p className="text-xs text-slate-400">{testim.font} • {testim.colorScheme}</p>
+                        </div>
+                      </div>
+                      <div className="flex items-center gap-2">
+                        {testim.libraries.map((lib) => (
+                          <span key={lib} className="text-[10px] font-mono bg-black/60 text-red-300 px-2 py-0.5 rounded border border-white/10">
+                            {lib}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+
+                    <div className="w-full">
+                      <TestimComp isMobile={isForcedMobile} />
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          )
+        )}
+
         {/* TAB: CARD SECTIONS SHOWCASE */}
         {activeTab === 'cards' && (
           viewMode === 'single' ? (
