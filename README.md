@@ -1,6 +1,6 @@
 # Modern React & Tailwind CSS Website Sections Suite
 
-A comprehensive, production-ready collection of **51+ pixel-perfect, highly responsive website sections** built with **React 19**, **Tailwind CSS v4**, **Motion**, **Three.js (WebGL)**, and **Lucide Icons**.
+A comprehensive, production-ready collection of **56+ pixel-perfect, highly responsive website sections** built with **React 19**, **Tailwind CSS v4**, **Motion**, **Three.js (WebGL)**, and **Lucide Icons**.
 
 🌐 **Live Demo Website:** [https://jattiphrswan.github.io/website-differents-sections-/](https://jattiphrswan.github.io/website-differents-sections-/)
 
@@ -8,12 +8,17 @@ A comprehensive, production-ready collection of **51+ pixel-perfect, highly resp
 
 ## 🌟 Sections Overview
 
-### 1. 🗂️ Card Sections (5 Distinct Frameworks - NEW)
+### 1. 🗂️ Card Sections (10 Distinct Frameworks - NEW)
 1. **Future-Proof Flow** — 3 asymmetric squircle workspace engineering bento cards with active emerald zero-trust core and deep-dive spec drawers.
 2. **Design Principles Matrix** — Dark cyberpunk purple grid with ambient spotlight beam, active Hierarchy card, and live collaborator cursor tooltip (`Hey!`).
 3. **Lab. Self-Improving Agents** — Editorial serif dark AI platform with interactive diamond CLI node graph (INIT, DEVELOP, EVAL, PUSH) and live hosted evaluations.
 4. **Digitize Your Processes** — Clean 6-grid paperless enterprise process suite (AP, AR, Journal Entries, HR, Reconciliations, Intercompany).
 5. **How It Works** — 3-step e-commerce pipeline with interactive product selector, real-time tube brand name customizer, and 1-click Shopify sync celebration.
+6. **Secure Account Control** — Clean minimalist 4-pillar security card suite with line-art green doodle icons and interactive privileges inspector.
+7. **Our Full Suite of Services (Clean Energy)** — Bright lime solar installation & battery storage cards with interactive 25-year ROI calculator.
+8. **Key Highlights (Dark SaaS)** — Ultra-sleek charcoal dark mode 6-grid with cyan pill badge and live telemetry drawers.
+9. **Pediatric & Physical Therapy** — Luxury rehabilitation 3-card photo editorial with line icons and appointment booking scheduler.
+10. **Luxury Living Suites** — Obsidian penthouse residence suite cards with subtle dark pattern, floorplan specs, and VIP private tour scheduler.
 
 ### 2. 🪟 About Sections (10 Distinct Designs)
 1. **Impact Stories** — Brand storytelling hero about section with jumping megaphone brand advocate, 400K impressions & 57.25% engagement badges, and top tech partner ecosystem (Windows, Google, Meta, OpenAI).

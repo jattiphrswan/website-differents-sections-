@@ -56,7 +56,12 @@ import {
   Cards_DesignPrinciples,
   Cards_AILabAgents,
   Cards_ProcessDigitize,
-  Cards_HowItWorksSteps
+  Cards_HowItWorksSteps,
+  Cards_SecureControl,
+  Cards_CleanEnergySuite,
+  Cards_DarkKeyHighlights,
+  Cards_TherapyWellness,
+  Cards_LuxuryRealEstate
 } from './components/cards';
 import { 
   Check, 
@@ -607,6 +612,66 @@ const cardsList = [
     component: Cards_HowItWorksSteps,
     libraries: ['Motion', 'Canvas-Confetti', 'Lucide React', 'Tailwind CSS'],
     interactivity: 'Click skincare products to toggle selection in Step 1, type your brand name in Step 2 to brand the tube live, and click "+ Your Store" in Step 3 for Shopify sync confetti.'
+  },
+  {
+    id: 'cards-securecontrol',
+    name: 'Secure Account Control (4-Pillar)',
+    tag: 'Cloud & Security',
+    highlight: 'Minimalist Line Art • Dynamic Spec Sheet',
+    font: 'Plus Jakarta Sans',
+    colorScheme: 'Clean White & Deep Forest Green',
+    description: 'Clean minimalist security platform feature section with dual-column hero copy, line-art doodle icons, and interactive access privilege inspector modal.',
+    component: Cards_SecureControl,
+    libraries: ['Motion', 'Lucide React', 'Tailwind CSS'],
+    interactivity: 'Click any of the 4 security pillar cards to inspect security telemetry, encryption keys, and active user access levels.'
+  },
+  {
+    id: 'cards-cleanenergy',
+    name: 'Our Full Suite of Services (Clean Energy)',
+    tag: 'Renewable & Solar',
+    highlight: 'Crisp Elevation Cards • 25-Yr ROI Calculator',
+    font: 'Plus Jakarta Sans',
+    colorScheme: 'Bright Solar Lime & Pure White',
+    description: 'Modern clean energy services grid featuring Energy Audits, Project Design, Solar Installation, and Battery Storage with interactive 25-year solar ROI savings calculator.',
+    component: Cards_CleanEnergySuite,
+    libraries: ['Motion', 'Canvas-Confetti', 'Lucide React', 'Tailwind CSS'],
+    interactivity: 'Click any service card or arrow pill to inspect engineering specs, or click "Get Started →" to launch the interactive solar ROI savings calculator with live confetti.'
+  },
+  {
+    id: 'cards-darkhighlights',
+    name: 'Key Highlights (Dark SaaS 6-Grid)',
+    tag: 'Modern SaaS Grid',
+    highlight: 'Cyan Glowing Pill • Deep Dive Drawer',
+    font: 'Plus Jakarta Sans',
+    colorScheme: 'Deep Charcoal Noir & Cyan Glow',
+    description: 'Sleek dark-mode feature showcase with glowing cyan pill tag, 6 rounded soft-bordered cards for User management, Mobile, Cloud storage, Backup, Instant updates, and Custom templates.',
+    component: Cards_DarkKeyHighlights,
+    libraries: ['Motion', 'Lucide React', 'Tailwind CSS'],
+    interactivity: 'Click any feature card to view performance telemetry, system API payloads, and live operational status.'
+  },
+  {
+    id: 'cards-therapywellness',
+    name: 'Pediatric & Physical Therapy (Wellness 3-Card)',
+    tag: 'Health & Wellness',
+    highlight: 'Editorial Typography • Booking Scheduler',
+    font: 'Playfair Display + Plus Jakarta Sans',
+    colorScheme: 'Sage Green, Warm Ivory & Natural Earth',
+    description: 'Luxury wellness and rehabilitation practice showcase featuring Sports Rehabilitation, Massage Therapy, and Physical Therapy with editorial overlay icons and interactive booking scheduler.',
+    component: Cards_TherapyWellness,
+    libraries: ['Motion', 'Canvas-Confetti', 'Lucide React', 'Tailwind CSS'],
+    interactivity: 'Click any wellness card or "VIEW ALL SERVICES →" to open the interactive appointment booking scheduler with live session confirmation.'
+  },
+  {
+    id: 'cards-luxuryrealestate',
+    name: 'Luxury Living Suites (Penthouse 3-Card)',
+    tag: 'Luxury Real Estate',
+    highlight: 'Dark Hex Texture • VIP Private Tour Modal',
+    font: 'Plus Jakarta Sans + Instrument Serif',
+    colorScheme: 'Obsidian Noir & Warm Champagne Gold',
+    description: 'Ultra-luxury architectural residence section with subtle dark geometric pattern background, architectural room photography, property specs, and VIP private tour scheduler.',
+    component: Cards_LuxuryRealEstate,
+    libraries: ['Motion', 'Canvas-Confetti', 'Lucide React', 'Tailwind CSS'],
+    interactivity: 'Click any residence card or "Schedule Private Tour" to open the VIP showing scheduler with live concierge appointment booking.'
   }
 ];
 
