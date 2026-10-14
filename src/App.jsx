@@ -65,6 +65,11 @@ import {
 } from './components/cards';
 import {
   Testimonials_RibbonCards,
+  Testimonials_MinimalistDark,
+  Testimonials_GentleApproach,
+  Testimonials_SkincareSplit,
+  Testimonials_WorldMapCustomers,
+  Testimonials_DarkRedStars,
   Testimonials_VideoBento,
   Testimonials_WallOfLove
 } from './components/testimonials';
@@ -101,6 +106,66 @@ const testimonialsList = [
     component: Testimonials_RibbonCards,
     libraries: ['Motion', 'Canvas-Confetti', 'Lucide React', 'Tailwind CSS'],
     interactivity: 'Click any card to open the verified review modal with full case study, audio waveform quote player, and interactive helpful counter.'
+  },
+  {
+    id: 'testimonials-minimalistdark',
+    name: 'Minimalist Dark (Watermark & Voice)',
+    tag: 'Editorial Dark',
+    highlight: 'Giant Watermark • Audio Voice Player',
+    font: 'Plus Jakarta Sans',
+    colorScheme: 'Charcoal Noir, Pure White & Amber',
+    description: 'High-contrast minimalist dark mode quote section with subtle oversized watermark typography, warm circular author portrait, and audio voice player.',
+    component: Testimonials_MinimalistDark,
+    libraries: ['Motion', 'Canvas-Confetti', 'Lucide React', 'Tailwind CSS'],
+    interactivity: 'Slide between customer testimonials with smooth directional transitions, listen to simulated voice clip audio, or mark helpful with confetti.'
+  },
+  {
+    id: 'testimonials-gentleapproach',
+    name: 'Gentle Clinical Approach (2-Column & Stats)',
+    tag: 'Clinical & Healthcare',
+    highlight: 'Feedback Watermark • 124+ Doctors',
+    font: 'Plus Jakarta Sans',
+    colorScheme: 'Clean White, Medical Red & Lime',
+    description: 'Professional healthcare & dental practice testimonial layout with oversized Feedback watermark, clinical partner statistics, and 3 stacked patient reviews with quote glyphs.',
+    component: Testimonials_GentleApproach,
+    libraries: ['Motion', 'Canvas-Confetti', 'Lucide React', 'Tailwind CSS'],
+    interactivity: 'Click any patient review to inspect the verified clinical case file, or click "Read More >>" to view sterilization and surgical standards.'
+  },
+  {
+    id: 'testimonials-skincaresplit',
+    name: 'Client Testimonials (Luxury Skincare 50/50)',
+    tag: 'Beauty & Dermatology',
+    highlight: '50/50 Split • High-Res Beauty Portrait',
+    font: 'Playfair Display + Plus Jakarta Sans',
+    colorScheme: 'Soft Cream, Peachy Blush & Terracotta',
+    description: 'Editorial split-screen luxury beauty testimonial with warm blush palette, Playfair Display typography, high-resolution beauty portrait, and clinical hydration badges.',
+    component: Testimonials_SkincareSplit,
+    libraries: ['Motion', 'Canvas-Confetti', 'Lucide React', 'Tailwind CSS'],
+    interactivity: 'Click "View Hydration Results" to open clinical case study, or switch between client transformation stories.'
+  },
+  {
+    id: 'testimonials-worldmap',
+    name: 'Hear from Our Customers (Global World Map)',
+    tag: 'Global Scale',
+    highlight: 'Vector World Map • Pulsing City Pins',
+    font: 'Plus Jakarta Sans',
+    colorScheme: 'Pure White, Warm Coral & Slate',
+    description: 'Clean global testimonials section featuring subtle world map vector background with pulsing city pin nodes, uppercase author tags, 5 orange stars, and coral CTA button.',
+    component: Testimonials_WorldMapCustomers,
+    libraries: ['Motion', 'Canvas-Confetti', 'Lucide React', 'Tailwind CSS'],
+    interactivity: 'Hover over pulsing map pins (San Francisco, London, Tokyo, Berlin, Sydney, Singapore) or click "Read More" for 58-country infrastructure telemetry.'
+  },
+  {
+    id: 'testimonials-darkredstars',
+    name: 'Favorable Reviews (Pitch-Black 6-Grid)',
+    tag: 'Pitch Black Grid',
+    highlight: '6 Dark Cards • Glowing Red Stars',
+    font: 'Plus Jakarta Sans',
+    colorScheme: 'Pitch Black & Radiant Red',
+    description: 'Ultra-dark 6-card design testimonial matrix with glowing red 5-star ratings, author avatars, and cryptographic review audit drawer.',
+    component: Testimonials_DarkRedStars,
+    libraries: ['Motion', 'Canvas-Confetti', 'Lucide React', 'Tailwind CSS'],
+    interactivity: 'Click any of the 6 design cards to inspect cryptographic review proofs and upvote reviews with live confetti.'
   },
   {
     id: 'testimonials-videobento',
