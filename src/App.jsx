@@ -51,6 +51,13 @@ import {
   About_GlowCosmetics,
   About_LondonSEO
 } from './components/abouts';
+import {
+  Cards_FutureProofFlow,
+  Cards_DesignPrinciples,
+  Cards_AILabAgents,
+  Cards_ProcessDigitize,
+  Cards_HowItWorksSteps
+} from './components/cards';
 import { 
   Check, 
   Copy, 
@@ -61,6 +68,7 @@ import {
   Sparkles,
   Layers,
   LayoutTemplate,
+  LayoutGrid,
   Flame,
   ExternalLink,
   SlidersHorizontal,
@@ -539,11 +547,75 @@ const aboutsList = [
   }
 ];
 
+const cardsList = [
+  {
+    id: 'cards-futureproof',
+    name: 'Future-Proof Flow (3-Pillar Workspace)',
+    tag: 'Feature Bento',
+    highlight: 'Asymmetric Squircle • Emerald Hero',
+    font: 'Plus Jakarta Sans',
+    colorScheme: 'Mint Fresh & Emerald Green',
+    description: 'Workspace engineering feature section featuring 3 organic squircle cards, active zero-trust security center card, and interactive architectural spec drawers.',
+    component: Cards_FutureProofFlow,
+    libraries: ['Motion', 'Canvas-Confetti', 'Lucide React', 'Tailwind CSS'],
+    interactivity: 'Click any pillar card or circular arrow button to open deep-dive architectural specifications with live telemetry benchmarks.'
+  },
+  {
+    id: 'cards-designprinciples',
+    name: 'Design Principles (Cyberpunk Matrix)',
+    tag: 'Design & UX',
+    highlight: 'Purple Neon Grid • Multiplayer Cursor',
+    font: 'Plus Jakarta Sans',
+    colorScheme: 'Deep Cyberpunk Purple & Radiant Violet',
+    description: 'Immersive dark design education matrix with active spotlight hierarchy centerpiece, live multiplayer collaborator cursor tooltip, and rule masterclasses.',
+    component: Cards_DesignPrinciples,
+    libraries: ['Motion', 'Canvas-Confetti', 'Lucide React', 'Tailwind CSS'],
+    interactivity: 'Click any principle (Contrast, Hierarchy, Balance, Alignment, Repetition, Proximity) to shift the focal spotlight and launch the UX masterclass.'
+  },
+  {
+    id: 'cards-ailab',
+    name: 'Lab. Self-Improving Agents (Dark AI)',
+    tag: 'AI Infrastructure',
+    highlight: 'RL Diamond Graph • Live Benchmark',
+    font: 'Instrument Serif + Plus Jakarta Sans + Mono',
+    colorScheme: 'Obsidian Black & Electric Emerald',
+    description: 'High-end post-training AI research cards with interactive diamond CLI node graph, copyable bash commands, live hosted model evaluations, and agent cluster preview.',
+    component: Cards_AILabAgents,
+    libraries: ['Motion', 'Canvas-Confetti', 'Lucide React', 'Tailwind CSS'],
+    interactivity: 'Click diamond nodes (INIT, DEVELOP, EVAL, PUSH) to stream CLI commands, click "Evaluate →" to test live model accuracy, or explore the training cluster.'
+  },
+  {
+    id: 'cards-processdigitize',
+    name: 'Digitize Your Processes (Paperless 6-Grid)',
+    tag: 'Enterprise SaaS',
+    highlight: '6 Process Bento • Cyan Accents',
+    font: 'Plus Jakarta Sans',
+    colorScheme: 'Clean White & Vibrant Cyan',
+    description: 'Clean financial and operational workflow card grid covering Accounts Payable, Accounts Receivable, Journal Entries, HR, Reconciliations, and Intercompany.',
+    component: Cards_ProcessDigitize,
+    libraries: ['Motion', 'Canvas-Confetti', 'Lucide React', 'Tailwind CSS'],
+    interactivity: 'Click any card or "Learn more" link to open interactive workflow breakdown with documented paperless ROI metrics.'
+  },
+  {
+    id: 'cards-howitworks',
+    name: 'How It Works (E-Commerce 3-Step)',
+    tag: 'D2C Brand Builder',
+    highlight: 'Interactive Mockup • Shopify Sync',
+    font: 'Plus Jakarta Sans',
+    colorScheme: 'Clean Slate & Botanical Teal',
+    description: 'Step-by-step product launch journey featuring interactive product selector, real-time live cosmetic tube brand name customizer, and 1-click Shopify connection celebration.',
+    component: Cards_HowItWorksSteps,
+    libraries: ['Motion', 'Canvas-Confetti', 'Lucide React', 'Tailwind CSS'],
+    interactivity: 'Click skincare products to toggle selection in Step 1, type your brand name in Step 2 to brand the tube live, and click "+ Your Store" in Step 3 for Shopify sync confetti.'
+  }
+];
+
 export function App() {
-  const [activeTab, setActiveTab] = useState('abouts'); // 'abouts' | 'heroes' | 'headers' | 'pair'
+  const [activeTab, setActiveTab] = useState('cards'); // 'cards' | 'abouts' | 'heroes' | 'headers' | 'pair'
   const [selectedHeroId, setSelectedHeroId] = useState('hero-firsttransport');
   const [selectedHeaderId, setSelectedHeaderId] = useState('header-deepersignals');
   const [selectedAboutId, setSelectedAboutId] = useState('about-glowcosmetics');
+  const [selectedCardId, setSelectedCardId] = useState('cards-futureproof');
   const [viewMode, setViewMode] = useState('single'); // 'single' | 'all'
   const [deviceSize, setDeviceSize] = useState('desktop'); // 'desktop' | 'tablet' | 'mobile'
   const [copied, setCopied] = useState(false);
@@ -554,6 +626,9 @@ export function App() {
   const activeAbout = aboutsList.find((a) => a.id === selectedAboutId) || aboutsList[0];
   const ActiveAboutComponent = activeAbout.component;
 
+  const activeCard = cardsList.find((c) => c.id === selectedCardId) || cardsList[0];
+  const ActiveCardComponent = activeCard.component;
+
   const activeHeader = headersList.find((h) => h.id === selectedHeaderId) || headersList[0];
   const ActiveHeaderComponent = activeHeader.component;
 
@@ -561,7 +636,9 @@ export function App() {
 
   const handleCopyCode = () => {
     let code = '';
-    if (activeTab === 'abouts') {
+    if (activeTab === 'cards') {
+      code = `import { ${activeCard.component.name} } from './components/cards';\n\n// Typography: ${activeCard.font}\n// Color Scheme: ${activeCard.colorScheme}\n<${activeCard.component.name} />`;
+    } else if (activeTab === 'abouts') {
       code = `import { ${activeAbout.component.name} } from './components/abouts';\n\n// Typography: ${activeAbout.font}\n// Color Scheme: ${activeAbout.colorScheme}\n<${activeAbout.component.name} />`;
     } else if (activeTab === 'heroes') {
       code = `import { ${activeHero.component.name} } from './components/heroes';\n\n// Typography: ${activeHero.font}\n// Color Scheme: ${activeHero.colorScheme}\n<${activeHero.component.name} />`;
@@ -591,9 +668,9 @@ export function App() {
             </div>
             <div>
               <h1 className="text-base font-extrabold text-white leading-tight flex items-center gap-2">
-                Responsive Hero & Header Studio
+                Responsive Hero &amp; Header Studio
                 <span className="text-[11px] font-bold bg-blue-500/20 text-blue-300 px-2.5 py-0.5 rounded-full border border-blue-500/30">
-                  {heroesList.length} Heroes • {headersList.length} Headers • {aboutsList.length} About
+                  {cardsList.length} Cards • {aboutsList.length} About • {heroesList.length} Heroes • {headersList.length} Headers
                 </span>
               </h1>
               <p className="text-xs text-slate-400 font-medium">
@@ -604,6 +681,24 @@ export function App() {
 
           {/* Main Studio Navigation Switcher */}
           <div className="flex items-center bg-black/40 p-1.5 rounded-2xl border border-white/10 shadow-inner flex-wrap gap-1">
+            <button
+              onClick={() => {
+                setActiveTab('cards');
+                setViewMode('single');
+              }}
+              className={`px-3.5 py-1.5 rounded-xl text-xs font-bold transition flex items-center gap-1.5 cursor-pointer ${
+                activeTab === 'cards'
+                  ? 'bg-gradient-to-r from-emerald-600 to-teal-600 text-white shadow-lg shadow-emerald-600/30'
+                  : 'text-slate-400 hover:text-white'
+              }`}
+            >
+              <LayoutGrid className="w-3.5 h-3.5" />
+              <span>Card Sections ({cardsList.length})</span>
+              <span className="text-[10px] bg-emerald-500 text-white px-1.5 py-0.2 rounded-full font-extrabold animate-pulse">
+                NEW
+              </span>
+            </button>
+
             <button
               onClick={() => {
                 setActiveTab('abouts');
@@ -617,9 +712,6 @@ export function App() {
             >
               <Heart className="w-3.5 h-3.5" />
               <span>About Sections ({aboutsList.length})</span>
-              <span className="text-[10px] bg-rose-500 text-white px-1.5 py-0.2 rounded-full font-extrabold animate-pulse">
-                NEW
-              </span>
             </button>
 
             <button
@@ -747,6 +839,36 @@ export function App() {
         </div>
 
         {/* Tab-Specific Sub-Nav Pills */}
+        {activeTab === 'cards' && viewMode === 'single' && (
+          <div className="max-w-7xl mx-auto mt-3 pt-3 border-t border-white/10 flex items-center gap-2 overflow-x-auto pb-1 scrollbar-none">
+            {cardsList.map((card) => {
+              const isSelected = selectedCardId === card.id;
+              return (
+                <button
+                  key={card.id}
+                  onClick={() => setSelectedCardId(card.id)}
+                  className={`whitespace-nowrap px-4 py-1.5 rounded-full text-xs font-bold transition-all flex items-center gap-2 cursor-pointer ${
+                    isSelected
+                      ? 'bg-emerald-600 text-white shadow-lg shadow-emerald-600/30 scale-105'
+                      : 'bg-slate-900/80 hover:bg-slate-800 text-slate-300 border border-white/10'
+                  }`}
+                >
+                  <span>{card.name}</span>
+                  <span
+                    className={`text-[10px] px-2 py-0.5 rounded-full font-extrabold ${
+                      isSelected
+                        ? 'bg-white text-emerald-900'
+                        : 'bg-white/10 text-emerald-300'
+                    }`}
+                  >
+                    {card.highlight}
+                  </span>
+                </button>
+              );
+            })}
+          </div>
+        )}
+
         {activeTab === 'abouts' && viewMode === 'single' && (
           <div className="max-w-7xl mx-auto mt-3 pt-3 border-t border-white/10 flex items-center gap-2 overflow-x-auto pb-1 scrollbar-none">
             {aboutsList.map((about) => {
@@ -834,6 +956,104 @@ export function App() {
 
       {/* Main Content Area */}
       <main className="flex-1 max-w-7xl w-full mx-auto p-4 sm:p-8 flex flex-col gap-8">
+        {/* TAB: CARD SECTIONS SHOWCASE */}
+        {activeTab === 'cards' && (
+          viewMode === 'single' ? (
+            <div className="flex flex-col gap-6">
+              {/* Human Typography & Color Metadata Banner */}
+              <div className="bg-[#161b26] border border-white/10 rounded-2xl p-5 flex flex-col md:flex-row items-start md:items-center justify-between gap-4 shadow-xl">
+                <div>
+                  <div className="flex flex-wrap items-center gap-2">
+                    <h2 className="text-xl font-extrabold text-white">
+                      {activeCard.name}
+                    </h2>
+                    <span className="px-2.5 py-0.5 rounded-full text-xs font-bold bg-emerald-500/20 text-emerald-300 border border-emerald-500/30">
+                      {activeCard.tag}
+                    </span>
+                    <span className="px-2.5 py-0.5 rounded-full text-xs font-bold bg-teal-500/20 text-teal-300 border border-teal-500/30">
+                      {activeCard.highlight}
+                    </span>
+                  </div>
+                  <p className="text-xs text-slate-400 mt-1.5 max-w-3xl leading-relaxed">
+                    {activeCard.description}
+                  </p>
+                </div>
+
+                {/* Typography and Colors Specs */}
+                <div className="flex flex-col items-start md:items-end gap-2 shrink-0">
+                  <div className="flex items-center gap-1.5 text-xs text-slate-300 font-medium">
+                    <Type className="w-3.5 h-3.5 text-emerald-400" />
+                    <span>Font: <strong className="text-white">{activeCard.font}</strong></span>
+                  </div>
+                  <div className="flex items-center gap-1.5 text-xs text-slate-400">
+                    <span className="w-2.5 h-2.5 rounded-full bg-emerald-500" />
+                    <span>Colors: {activeCard.colorScheme}</span>
+                  </div>
+                </div>
+              </div>
+
+              {/* Working Interactivity Hint */}
+              <div className="bg-gradient-to-r from-emerald-950/60 via-slate-900 to-teal-950/60 border border-emerald-500/20 rounded-2xl p-3 flex items-center gap-3 text-xs text-emerald-200">
+                <div className="w-7 h-7 rounded-lg bg-emerald-500/20 flex items-center justify-center shrink-0">
+                  <Sparkles className="w-4 h-4 text-emerald-400" />
+                </div>
+                <span>
+                  <strong>Interactive Real Human Elements:</strong> {activeCard.interactivity}
+                </span>
+              </div>
+
+              {/* The Card Section Preview Container */}
+              <div className="w-full flex justify-center">
+                <div className={`transition-all duration-300 w-full ${getContainerWidth()}`}>
+                  <ActiveCardComponent isMobile={isForcedMobile} />
+                </div>
+              </div>
+            </div>
+          ) : (
+            /* View All Cards */
+            <div className="flex flex-col gap-14">
+              <div className="flex items-center justify-between">
+                <div>
+                  <h2 className="text-2xl font-black text-white">All {cardsList.length} Responsive Card Sections</h2>
+                  <p className="text-sm text-slate-400">
+                    Modern bento grids, interactive frameworks, paperless workflows, and product pipelines.
+                  </p>
+                </div>
+              </div>
+
+              {cardsList.map((card, idx) => {
+                const CardComp = card.component;
+                return (
+                  <div key={card.id} className="bg-[#161b26] border border-white/10 rounded-3xl p-6 shadow-2xl space-y-4">
+                    <div className="flex flex-wrap items-center justify-between gap-3 pb-3 border-b border-white/10">
+                      <div className="flex items-center gap-3">
+                        <span className="w-7 h-7 rounded-xl bg-emerald-600 text-white font-extrabold text-xs flex items-center justify-center">
+                          {idx + 1}
+                        </span>
+                        <div>
+                          <h3 className="text-lg font-bold text-white">{card.name}</h3>
+                          <p className="text-xs text-slate-400">{card.font} • {card.colorScheme}</p>
+                        </div>
+                      </div>
+                      <div className="flex items-center gap-2">
+                        {card.libraries.map((lib) => (
+                          <span key={lib} className="text-[10px] font-mono bg-black/60 text-emerald-300 px-2 py-0.5 rounded border border-white/10">
+                            {lib}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+
+                    <div className={`mx-auto ${getContainerWidth()}`}>
+                      <CardComp isMobile={isForcedMobile} />
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          )
+        )}
+
         {/* TAB 0: ABOUT SECTIONS SHOWCASE */}
         {activeTab === 'abouts' && (
           viewMode === 'single' ? (
