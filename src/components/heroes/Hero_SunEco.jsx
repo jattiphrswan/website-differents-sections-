@@ -143,7 +143,7 @@ export const Hero_SunEco = ({ isMobile: forcedMobile = false }) => {
       <div className="relative mt-4 px-4 sm:px-12 flex justify-center items-end pb-4">
         <div className="relative w-full max-w-4xl rounded-2xl sm:rounded-3xl overflow-hidden shadow-2xl border-2 sm:border-4 border-white bg-slate-100">
           <img
-            src="/assets/suneco-landscape.jpg"
+            src="./assets/suneco-landscape.jpg"
             alt="Clean Energy Diorama"
             className="w-full h-auto object-cover max-h-[380px]"
           />

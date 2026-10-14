@@ -110,7 +110,7 @@ export const About_Solace = ({ isMobile: forcedMobile = false }) => {
         <div className="relative rounded-[2rem] sm:rounded-[2.5rem] overflow-hidden min-h-[460px] sm:min-h-[520px] lg:min-h-[580px] flex flex-col justify-end p-4 sm:p-7 group shadow-lg shadow-slate-900/5 bg-slate-100">
           {/* Main Background Image */}
           <img
-            src="/assets/solace-story-family.jpg"
+            src="./assets/solace-story-family.jpg"
             alt="Mother and young child laughing joyously together on a bright sunlit porch"
             className="absolute inset-0 w-full h-full object-cover object-center transition-transform duration-700 ease-out group-hover:scale-105"
             loading="lazy"

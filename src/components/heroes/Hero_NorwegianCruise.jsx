@@ -29,7 +29,7 @@ export const Hero_NorwegianCruise = ({ isMobile: forcedMobile = false }) => {
       <div
         className="absolute inset-0 bg-cover bg-center transition-transform duration-1000 scale-105"
         style={{
-          backgroundImage: "url('/assets/norwegian-cruise.jpg')"
+          backgroundImage: "url('./assets/norwegian-cruise.jpg')"
         }}
       >
         <div className="absolute inset-0 bg-gradient-to-r from-[#0a192f]/95 via-[#0a192f]/60 to-transparent" />
@@ -213,7 +213,7 @@ export const Hero_NorwegianCruise = ({ isMobile: forcedMobile = false }) => {
             >
               <div className="relative aspect-video bg-black flex items-center justify-center">
                 <img
-                  src="/assets/norwegian-cruise.jpg"
+                  src="./assets/norwegian-cruise.jpg"
                   alt="Fleet cinematic reel"
                   className="w-full h-full object-cover opacity-80"
                 />

@@ -335,7 +335,7 @@ export const About_ImpactfulStories = ({ isMobile: forcedMobile = false }) => {
             <motion.img
               whileHover={{ scale: 1.03 }}
               transition={{ duration: 0.4 }}
-              src="/assets/impact-stories-man.jpg"
+              src="./assets/impact-stories-man.jpg"
               alt="Excited brand ambassador leaping with megaphone"
               className="w-full h-full object-cover object-center cursor-pointer select-none"
               onClick={handleMegaphoneShout}

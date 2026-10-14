@@ -108,7 +108,7 @@ export const About_VeganFusion = ({ isMobile: forcedMobile = false }) => {
             className="relative z-20 w-[140px] h-[140px] sm:w-[170px] sm:h-[170px] rounded-full shadow-2xl border-4 border-white bg-slate-900 cursor-pointer overflow-hidden group"
           >
             <img
-              src="/assets/vegan-buddha-bowl.jpg"
+              src="./assets/vegan-buddha-bowl.jpg"
               alt="Central Gourmet Vegan Buddha Bowl with falafel, avocado and broccoli"
               className="w-full h-full object-cover group-hover:rotate-6 transition-transform duration-500"
             />

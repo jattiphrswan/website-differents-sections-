@@ -26,7 +26,7 @@ export const Hero_FirstTransport = ({ isMobile: forcedMobile = false }) => {
       <div
         className="absolute inset-0 bg-cover bg-center transition-transform duration-1000 scale-105"
         style={{
-          backgroundImage: "url('/assets/first-transport-truck.jpg')"
+          backgroundImage: "url('./assets/first-transport-truck.jpg')"
         }}
       >
         <div className="absolute inset-0 bg-gradient-to-r from-neutral-950/95 via-neutral-950/70 to-transparent" />

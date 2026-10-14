@@ -222,7 +222,7 @@ export const Hero_Enlango = ({ isMobile: forcedMobile = false }) => {
             {/* Main Visual Card */}
             <div className="relative rounded-3xl overflow-hidden border-4 border-white shadow-2xl bg-white max-w-md w-full">
               <img
-                src="/assets/enlango-student.jpg"
+                src="./assets/enlango-student.jpg"
                 alt="Student learning language"
                 className="w-full h-auto aspect-4/5 object-cover object-top"
               />

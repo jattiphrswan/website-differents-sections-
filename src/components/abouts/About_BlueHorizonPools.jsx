@@ -38,7 +38,7 @@ export const About_BlueHorizonPools = ({ isMobile: forcedMobile = false }) => {
             className="absolute top-0 left-0 sm:left-2 z-20 w-[200px] sm:w-[250px] rounded-2xl sm:rounded-3xl overflow-hidden shadow-2xl border-4 border-white bg-slate-100 group"
           >
             <img
-              src="/assets/luxury-resort-pool.jpg"
+              src="./assets/luxury-resort-pool.jpg"
               alt="Luxury resort swimming pool with wooden sun loungers and ocean view"
               className="w-full h-[240px] sm:h-[300px] object-cover group-hover:scale-105 transition-transform duration-700"
             />
@@ -54,7 +54,7 @@ export const About_BlueHorizonPools = ({ isMobile: forcedMobile = false }) => {
             className="absolute bottom-2 right-0 sm:right-2 z-20 w-[190px] sm:w-[230px] rounded-2xl sm:rounded-3xl overflow-hidden shadow-2xl border-4 border-white bg-slate-100 group"
           >
             <img
-              src="/assets/pool-ladder-tiles.jpg"
+              src="./assets/pool-ladder-tiles.jpg"
               alt="Stainless steel swimming pool ladder immersed in clear azure blue mosaic water"
               className="w-full h-[220px] sm:h-[270px] object-cover group-hover:scale-105 transition-transform duration-700"
             />

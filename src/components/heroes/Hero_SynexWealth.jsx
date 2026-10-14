@@ -120,7 +120,7 @@ export const Hero_SynexWealth = ({ isMobile: forcedMobile = false }) => {
       <div 
         className="absolute inset-0 bg-cover bg-center bg-no-repeat transition-transform duration-1000 scale-105"
         style={{
-          backgroundImage: "url('/assets/synex-landscape.jpg')",
+          backgroundImage: "url('./assets/synex-landscape.jpg')",
         }}
       >
         {/* Ambient atmospheric gradients & overlays */}

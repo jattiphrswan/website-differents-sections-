@@ -109,7 +109,7 @@ export const About_ShoppableVideo = ({ isMobile: forcedMobile = false }) => {
             
             {/* Phone Screen Wallpaper Video */}
             <img
-              src="/assets/shoppable-video-model.jpg"
+              src="./assets/shoppable-video-model.jpg"
               alt="Shoppable video model playing"
               className="absolute inset-0 w-full h-full object-cover object-center"
             />

@@ -63,7 +63,7 @@ export const About_DentalCare = ({ isMobile: forcedMobile = false }) => {
             className="absolute top-0 left-0 sm:left-4 z-20 w-[190px] sm:w-[230px] rounded-2xl sm:rounded-3xl overflow-hidden shadow-2xl border-4 border-white bg-white group"
           >
             <img
-              src="/assets/dentist-female-clinic.jpg"
+              src="./assets/dentist-female-clinic.jpg"
               alt="Professional female dentist in scrubs and mask holding dental instruments"
               className="w-full h-[220px] sm:h-[260px] object-cover group-hover:scale-105 transition-transform duration-500"
             />
@@ -79,7 +79,7 @@ export const About_DentalCare = ({ isMobile: forcedMobile = false }) => {
             className="absolute bottom-4 right-0 sm:right-4 z-20 w-[190px] sm:w-[230px] rounded-2xl sm:rounded-3xl overflow-hidden shadow-2xl border-4 border-white bg-white group"
           >
             <img
-              src="/assets/dentist-treating-patient.jpg"
+              src="./assets/dentist-treating-patient.jpg"
               alt="Dentist performing dental checkup on a smiling patient reclining in dental chair"
               className="w-full h-[220px] sm:h-[260px] object-cover group-hover:scale-105 transition-transform duration-500"
             />

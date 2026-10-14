@@ -125,7 +125,7 @@ export const About_TeamTrust = ({ isMobile: forcedMobile = false }) => {
         <div className={`relative rounded-[2rem] sm:rounded-[2.5rem] overflow-hidden min-h-[460px] sm:min-h-[520px] lg:min-h-[580px] shadow-lg shadow-slate-900/5 bg-slate-100 flex items-center justify-center group ${isMobile ? '' : 'lg:col-span-6 xl:col-span-6'}`}>
           {/* Main Background Image */}
           <img
-            src="/assets/team-hands-huddle.jpg"
+            src="./assets/team-hands-huddle.jpg"
             alt="Creative team colleagues stacking hands together in collaboration over an office meeting table"
             className="absolute inset-0 w-full h-full object-cover object-center transition-transform duration-700 ease-out group-hover:scale-105"
             loading="lazy"
@@ -195,7 +195,7 @@ export const About_TeamTrust = ({ isMobile: forcedMobile = false }) => {
               {/* Simulated Interactive Video Screen */}
               <div className="relative mt-4 rounded-2xl overflow-hidden bg-slate-900 aspect-video flex flex-col justify-between p-4 text-white">
                 <img
-                  src="/assets/team-hands-huddle.jpg"
+                  src="./assets/team-hands-huddle.jpg"
                   alt="Team reel preview"
                   className="absolute inset-0 w-full h-full object-cover opacity-75"
                 />

@@ -224,7 +224,7 @@ export const Hero_LuminaSpatial = ({ isMobile: forcedMobile = false }) => {
           >
             {/* High-res hardware render */}
             <img
-              src="/assets/lumina-device.jpg"
+              src="./assets/lumina-device.jpg"
               alt="Lumina Spatial Headset"
               className="w-full h-full object-contain rounded-3xl drop-shadow-[0_25px_35px_rgba(0,0,0,0.8)] filter brightness-105"
             />
@@ -307,7 +307,7 @@ export const Hero_LuminaSpatial = ({ isMobile: forcedMobile = false }) => {
 
               <div className="py-5 space-y-4">
                 <div className="flex gap-4 items-center bg-neutral-950 p-4 rounded-2xl border border-white/10">
-                  <img src="/assets/lumina-device.jpg" alt="Lumina" className="w-16 h-16 rounded-xl object-contain bg-neutral-900" />
+                  <img src="./assets/lumina-device.jpg" alt="Lumina" className="w-16 h-16 rounded-xl object-contain bg-neutral-900" />
                   <div>
                     <h4 className="font-bold text-white text-sm">Lumina One (512GB)</h4>
                     <p className="text-xs text-neutral-400">Finish: {selectedFinish.name}</p>

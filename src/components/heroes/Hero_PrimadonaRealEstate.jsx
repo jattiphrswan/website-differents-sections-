@@ -31,7 +31,7 @@ export const Hero_PrimadonaRealEstate = ({ isMobile: forcedMobile = false }) => 
       <div
         className="absolute inset-0 bg-cover bg-center transition-transform duration-1000 scale-105"
         style={{
-          backgroundImage: "url('/assets/primadona-villa.jpg')"
+          backgroundImage: "url('./assets/primadona-villa.jpg')"
         }}
       >
         <div className="absolute inset-0 bg-gradient-to-r from-[#09152b]/95 via-[#09152b]/65 to-transparent" />

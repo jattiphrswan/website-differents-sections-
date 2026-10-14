@@ -82,7 +82,7 @@ export const About_GlowCosmetics = ({ isMobile: forcedMobile = false }) => {
               {/* Photo 1: Hand holding lavender & peony serum bottle */}
               <div className="relative rounded-2xl sm:rounded-3xl overflow-hidden shadow-xl border-2 border-white/80 group">
                 <img
-                  src="/assets/skincare-serum-hand.jpg"
+                  src="./assets/skincare-serum-hand.jpg"
                   alt="Aura lavender and peony serum bottle held in feminine hand"
                   className="w-full h-[200px] sm:h-[240px] object-cover group-hover:scale-105 transition-transform duration-500"
                 />
@@ -102,7 +102,7 @@ export const About_GlowCosmetics = ({ isMobile: forcedMobile = false }) => {
               {/* Photo 2 (Bottom): Hand applying botanical cleansing lotion */}
               <div className="relative rounded-2xl sm:rounded-3xl overflow-hidden shadow-xl border-2 border-white/80 group">
                 <img
-                  src="/assets/skincare-cleanser-bottle.jpg"
+                  src="./assets/skincare-cleanser-bottle.jpg"
                   alt="Botanical blossom facial lotion application"
                   className="w-full h-[180px] sm:h-[220px] object-cover group-hover:scale-105 transition-transform duration-500"
                 />
@@ -159,7 +159,7 @@ export const About_GlowCosmetics = ({ isMobile: forcedMobile = false }) => {
               {/* Photo 3: Cosmetic jars flatlay with 50% OFF badge */}
               <div className="relative rounded-2xl sm:rounded-3xl overflow-hidden shadow-xl border-2 border-white/80 group">
                 <img
-                  src="/assets/skincare-flatlay-jars.jpg"
+                  src="./assets/skincare-flatlay-jars.jpg"
                   alt="Lumière Botanica hydrating cream and toner flatlay with pink petals"
                   className="w-full h-[220px] sm:h-[260px] object-cover group-hover:scale-105 transition-transform duration-500"
                 />
@@ -283,7 +283,7 @@ export const About_GlowCosmetics = ({ isMobile: forcedMobile = false }) => {
 
               <div className="mt-4 flex gap-4 items-center p-3 bg-rose-50/50 rounded-2xl border border-rose-100">
                 <img
-                  src="/assets/skincare-serum-hand.jpg"
+                  src="./assets/skincare-serum-hand.jpg"
                   alt="Aura Serum"
                   className="w-18 h-20 rounded-xl object-cover shrink-0"
                 />

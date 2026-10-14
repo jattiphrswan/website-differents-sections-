@@ -32,7 +32,7 @@ export const Hero_StylecraftDesign = ({ isMobile: forcedMobile = false }) => {
         <div
           className="absolute inset-0 bg-cover bg-center transition-transform duration-1000 scale-105"
           style={{
-            backgroundImage: "url('/assets/stylecraft-living.jpg')"
+            backgroundImage: "url('./assets/stylecraft-living.jpg')"
           }}
         >
           <div className="absolute inset-0 bg-black/55 backdrop-blur-[1px]" />

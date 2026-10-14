@@ -93,7 +93,7 @@ export const About_OrganicFarm = ({ isMobile: forcedMobile = false }) => {
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0, scale: 1.02 }}
                 transition={{ duration: 0.4 }}
-                src={isFarmer ? '/assets/organic-farmer.jpg' : '/assets/female-farmer-strawberries.jpg'}
+                src={isFarmer ? './assets/organic-farmer.jpg' : './assets/female-farmer-strawberries.jpg'}
                 alt={isFarmer ? 'Organic farmer standing proudly in green fields' : 'Farmer holding fresh strawberry harvest basket'}
                 className="w-full h-full object-cover object-center"
               />

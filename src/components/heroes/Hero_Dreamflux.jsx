@@ -19,35 +19,35 @@ const GALLERY_ITEMS = [
     id: 'chair',
     title: 'Sculptural Cobalt Armchair',
     prompt: 'Architectural cobalt blue armchair, minimalist brutalist gallery space, dramatic side sunlight',
-    src: '/assets/dreamflux-chair.jpg',
+    src: './assets/dreamflux-chair.jpg',
     aspect: 'aspect-[3/4]'
   },
   {
     id: 'puppy',
     title: 'Fluffy Golden Retriever Pup',
     prompt: 'Macro photography of golden puppy nestled in heavy knit oatmeal blanket, soft morning light',
-    src: '/assets/dreamflux-puppy.jpg',
+    src: './assets/dreamflux-puppy.jpg',
     aspect: 'aspect-square'
   },
   {
     id: 'cosmetics',
     title: 'Aura Skincare Vessel',
     prompt: 'Matte glass cosmetic jar with natural oak lid on travertine stone, organic branch shadow',
-    src: '/assets/dreamflux-cosmetics.jpg',
+    src: './assets/dreamflux-cosmetics.jpg',
     aspect: 'aspect-[3/4]'
   },
   {
     id: 'portrait',
     title: 'Luminous Editorial Portrait',
     prompt: 'Cinematic beauty portrait, natural skin texture, gentle ambient pastel illumination',
-    src: '/assets/dreamflux-portrait.jpg',
+    src: './assets/dreamflux-portrait.jpg',
     aspect: 'aspect-[3/4]'
   },
   {
     id: 'lamp',
     title: 'Brass Luminaire & Clock',
     prompt: 'Curved brass reading lamp, vintage olive clock on oak nightstand, morning leaf shadows',
-    src: '/assets/dreamflux-lamp.jpg',
+    src: './assets/dreamflux-lamp.jpg',
     aspect: 'aspect-[3/4]'
   }
 ];
