@@ -77,6 +77,14 @@ import {
   Testimonials_VideoBento,
   Testimonials_WallOfLove
 } from './components/testimonials';
+import {
+  CTA_PhysiqueArchitect,
+  CTA_OrangeRipple,
+  CTA_SkipTracingGlobe,
+  CTA_AlgorithmicTrading,
+  CTA_DarkGlassmorphicSaaS,
+  CTA_EditorialMinimalist
+} from './components/ctas';
 import { 
   Check, 
   Copy, 
@@ -97,6 +105,81 @@ import {
   Heart,
   MessageSquareQuote
 } from 'lucide-react';
+
+const ctasList = [
+  {
+    id: 'cta-physique',
+    name: 'Physique Architect (High-Performance Fitness)',
+    tag: 'Fitness & Roster',
+    highlight: 'Battle Ropes Athlete • Intake Audit',
+    font: 'Playfair Display + Plus Jakarta Sans',
+    colorScheme: 'Obsidian Black, Terracotta & White',
+    description: 'Luxury high-performance fitness call-to-action featuring dynamic athletic battle-ropes warehouse photography, bespoke italic typography, and full 3-step coaching roster application questionnaire modal.',
+    component: CTA_PhysiqueArchitect,
+    libraries: ['Motion', 'Canvas-Confetti', 'Lucide React', 'Tailwind CSS'],
+    interactivity: 'Click "APPLY FOR ROSTER →" to launch the elite coaching candidate audit questionnaire with custom training goals and live confetti celebration.'
+  },
+  {
+    id: 'cta-orangeripple',
+    name: 'Let’s Get In Touch (Radiant Orange Ripple)',
+    tag: 'Laboratory & MedTech',
+    highlight: '3D Concentric Rings • Dual Pill Switchers',
+    font: 'Plus Jakarta Sans (Heavy Bold)',
+    colorScheme: 'Radiant Orange & Deep Jet Black',
+    description: 'High-energy vibrant orange call-to-action banner with layered 3D acoustic concentric ripple waves, heavy crisp typography, and tactile jet-black pill controls with metallic toggle orb knobs.',
+    component: CTA_OrangeRipple,
+    libraries: ['Motion', 'Canvas-Confetti', 'Lucide React', 'Tailwind CSS'],
+    interactivity: 'Hover or click "Book a discovery call" or "Test Your Samples" to trigger tactile 3D toggle orb animations and open analytical instrumentation intake portals.'
+  },
+  {
+    id: 'cta-skiptracing',
+    name: 'Superior Skip Tracing (North America Particle Globe)',
+    tag: 'Intelligence & Big Data',
+    highlight: 'Particle Dot Globe • Interactive City Pins',
+    font: 'Plus Jakarta Sans',
+    colorScheme: 'Cosmic Pitch Black, Cyan & Violet',
+    description: 'Futuristic skip-tracing data platform banner featuring 3D particle dot globe of North America with bright neon rim light, interactive live city pins (NYC, LA, Chicago, Austin, Miami), and simulated 150+ data points query drawer.',
+    component: CTA_SkipTracingGlobe,
+    libraries: ['Motion', 'Canvas-Confetti', 'Lucide React', 'Tailwind CSS'],
+    interactivity: 'Click any glowing city pin on the North America globe for live latency telemetry, or click "Get started" to run a live query scan with 150+ data points unlocked.'
+  },
+  {
+    id: 'cta-algorithmic',
+    name: 'Algorithmic Execution (Split Headline & Circuit)',
+    tag: 'Institutional FinTech',
+    highlight: 'Split Headline • PCB Traces • Strategy Sim',
+    font: 'Plus Jakarta Sans (Bold Grotesque)',
+    colorScheme: 'Navy Slate & Electric Cyan',
+    description: 'Modern institutional trading call-to-action banner with split headline architecture, engraved PCB circuit grid texture, 3-dot sparkle button, and interactive live order execution risk simulator.',
+    component: CTA_AlgorithmicTrading,
+    libraries: ['Motion', 'Canvas-Confetti', 'Lucide React', 'Tailwind CSS'],
+    interactivity: 'Click "▶ Watch how it works" to launch live risk hedging execution simulator with interactive drawdown slider, or test "Get started" exchange API connect.'
+  },
+  {
+    id: 'cta-saasvelocity',
+    name: 'Engineering Velocity (Dark Glassmorphic SaaS)',
+    tag: 'Cloud & DevOps SaaS',
+    highlight: 'Indigo Mesh Glow • Developer Social Proof',
+    font: 'Plus Jakarta Sans (Black)',
+    colorScheme: 'Obsidian Noir, Indigo & Violet',
+    description: 'Modern developer SaaS call-to-action banner with vibrant ambient mesh glow, GitHub developer avatar cluster, instant email intake, and production cluster deployment modal.',
+    component: CTA_DarkGlassmorphicSaaS,
+    libraries: ['Motion', 'Canvas-Confetti', 'Lucide React', 'Tailwind CSS'],
+    interactivity: 'Enter work email to deploy production cluster, switch team vs enterprise tiers, and trigger celebratory deployment confetti.'
+  },
+  {
+    id: 'cta-editorialminimalist',
+    name: 'Enduring Spaces (Architectural Monograph)',
+    tag: 'Luxury Architecture',
+    highlight: 'Alabaster Stone • Editorial Playfair Italic',
+    font: 'Playfair Display + Plus Jakarta Sans',
+    colorScheme: 'Warm Alabaster Stone & Charcoal',
+    description: 'Warm minimalist architectural commission call-to-action with editorial serif typography, carbon-negative guarantee, and private commission docket ingestion modal.',
+    component: CTA_EditorialMinimalist,
+    libraries: ['Motion', 'Canvas-Confetti', 'Lucide React', 'Tailwind CSS'],
+    interactivity: 'Click "Inquire About Commission" to submit site location and commission scope, or download Monograph Vol. VIII.'
+  }
+];
 
 const testimonialsList = [
   {
@@ -838,7 +921,8 @@ const cardsList = [
 ];
 
 export function App() {
-  const [activeTab, setActiveTab] = useState('testimonials'); // 'testimonials' | 'cards' | 'abouts' | 'heroes' | 'headers' | 'pair'
+  const [activeTab, setActiveTab] = useState('ctas'); // 'ctas' | 'testimonials' | 'cards' | 'abouts' | 'heroes' | 'headers' | 'pair'
+  const [selectedCtaId, setSelectedCtaId] = useState('cta-physique');
   const [selectedTestimonialId, setSelectedTestimonialId] = useState('testimonials-ribboncards');
   const [selectedHeroId, setSelectedHeroId] = useState('hero-firsttransport');
   const [selectedHeaderId, setSelectedHeaderId] = useState('header-deepersignals');
@@ -847,6 +931,9 @@ export function App() {
   const [viewMode, setViewMode] = useState('single'); // 'single' | 'all'
   const [deviceSize, setDeviceSize] = useState('desktop'); // 'desktop' | 'tablet' | 'mobile'
   const [copied, setCopied] = useState(false);
+
+  const activeCta = ctasList.find((c) => c.id === selectedCtaId) || ctasList[0];
+  const ActiveCtaComponent = activeCta.component;
 
   const activeTestimonial = testimonialsList.find((t) => t.id === selectedTestimonialId) || testimonialsList[0];
   const ActiveTestimonialComponent = activeTestimonial.component;
@@ -867,7 +954,9 @@ export function App() {
 
   const handleCopyCode = () => {
     let code = '';
-    if (activeTab === 'testimonials') {
+    if (activeTab === 'ctas') {
+      code = `import { ${activeCta.component.name} } from './components/ctas';\n\n// Typography: ${activeCta.font}\n// Color Scheme: ${activeCta.colorScheme}\n<${activeCta.component.name} />`;
+    } else if (activeTab === 'testimonials') {
       code = `import { ${activeTestimonial.component.name} } from './components/testimonials';\n\n// Typography: ${activeTestimonial.font}\n// Color Scheme: ${activeTestimonial.colorScheme}\n<${activeTestimonial.component.name} />`;
     } else if (activeTab === 'cards') {
       code = `import { ${activeCard.component.name} } from './components/cards';\n\n// Typography: ${activeCard.font}\n// Color Scheme: ${activeCard.colorScheme}\n<${activeCard.component.name} />`;
@@ -902,8 +991,8 @@ export function App() {
             <div>
               <h1 className="text-base font-extrabold text-white leading-tight flex items-center gap-2">
                 Responsive Hero &amp; Header Studio
-                <span className="text-[11px] font-bold bg-blue-500/20 text-blue-300 px-2.5 py-0.5 rounded-full border border-blue-500/30">
-                  {testimonialsList.length} Testimonials • {cardsList.length} Cards • {aboutsList.length} About • {heroesList.length} Heroes • {headersList.length} Headers
+                <span className="text-[11px] font-bold bg-orange-500/20 text-orange-300 px-2.5 py-0.5 rounded-full border border-orange-500/30">
+                  {ctasList.length} Call of Action • {testimonialsList.length} Testimonials • {cardsList.length} Cards • {aboutsList.length} About • {heroesList.length} Heroes • {headersList.length} Headers
                 </span>
               </h1>
               <p className="text-xs text-slate-400 font-medium">
@@ -914,6 +1003,24 @@ export function App() {
 
           {/* Main Studio Navigation Switcher */}
           <div className="flex items-center bg-black/40 p-1.5 rounded-2xl border border-white/10 shadow-inner flex-wrap gap-1">
+            <button
+              onClick={() => {
+                setActiveTab('ctas');
+                setViewMode('single');
+              }}
+              className={`px-3.5 py-1.5 rounded-xl text-xs font-bold transition flex items-center gap-1.5 cursor-pointer ${
+                activeTab === 'ctas'
+                  ? 'bg-gradient-to-r from-amber-500 via-orange-500 to-rose-500 text-white shadow-lg shadow-orange-500/30'
+                  : 'text-slate-400 hover:text-white'
+              }`}
+            >
+              <Flame className="w-3.5 h-3.5" />
+              <span>Call of Action ({ctasList.length})</span>
+              <span className="text-[10px] bg-amber-400 text-black px-1.5 py-0.2 rounded-full font-extrabold animate-pulse">
+                NEW
+              </span>
+            </button>
+
             <button
               onClick={() => {
                 setActiveTab('testimonials');
@@ -927,9 +1034,6 @@ export function App() {
             >
               <MessageSquareQuote className="w-3.5 h-3.5" />
               <span>Testimonials ({testimonialsList.length})</span>
-              <span className="text-[10px] bg-red-500 text-white px-1.5 py-0.2 rounded-full font-extrabold animate-pulse">
-                NEW
-              </span>
             </button>
 
             <button
@@ -1087,6 +1191,36 @@ export function App() {
         </div>
 
         {/* Tab-Specific Sub-Nav Pills */}
+        {activeTab === 'ctas' && viewMode === 'single' && (
+          <div className="max-w-7xl mx-auto mt-3 pt-3 border-t border-white/10 flex items-center gap-2 overflow-x-auto pb-1 scrollbar-none">
+            {ctasList.map((cta) => {
+              const isSelected = selectedCtaId === cta.id;
+              return (
+                <button
+                  key={cta.id}
+                  onClick={() => setSelectedCtaId(cta.id)}
+                  className={`whitespace-nowrap px-4 py-1.5 rounded-full text-xs font-bold transition-all flex items-center gap-2 cursor-pointer ${
+                    isSelected
+                      ? 'bg-orange-600 text-white shadow-lg shadow-orange-600/30 scale-105'
+                      : 'bg-slate-900/80 hover:bg-slate-800 text-slate-300 border border-white/10'
+                  }`}
+                >
+                  <span>{cta.name}</span>
+                  <span
+                    className={`text-[10px] px-2 py-0.5 rounded-full font-extrabold ${
+                      isSelected
+                        ? 'bg-white text-orange-950'
+                        : 'bg-white/10 text-orange-300'
+                    }`}
+                  >
+                    {cta.highlight}
+                  </span>
+                </button>
+              );
+            })}
+          </div>
+        )}
+
         {activeTab === 'testimonials' && viewMode === 'single' && (
           <div className="max-w-7xl mx-auto mt-3 pt-3 border-t border-white/10 flex items-center gap-2 overflow-x-auto pb-1 scrollbar-none">
             {testimonialsList.map((item) => {
@@ -1234,6 +1368,104 @@ export function App() {
 
       {/* Main Content Area */}
       <main className="flex-1 max-w-7xl w-full mx-auto p-4 sm:p-8 flex flex-col gap-8">
+        {/* TAB: CALL TO ACTION (CTA) SECTIONS SHOWCASE */}
+        {activeTab === 'ctas' && (
+          viewMode === 'single' ? (
+            <div className="flex flex-col gap-6">
+              {/* Human Typography & Color Metadata Banner */}
+              <div className="bg-[#161b26] border border-white/10 rounded-2xl p-5 flex flex-col md:flex-row items-start md:items-center justify-between gap-4 shadow-xl">
+                <div>
+                  <div className="flex flex-wrap items-center gap-2">
+                    <h2 className="text-xl font-extrabold text-white">
+                      {activeCta.name}
+                    </h2>
+                    <span className="px-2.5 py-0.5 rounded-full text-xs font-bold bg-orange-500/20 text-orange-300 border border-orange-500/30">
+                      {activeCta.tag}
+                    </span>
+                    <span className="px-2.5 py-0.5 rounded-full text-xs font-bold bg-amber-500/20 text-amber-300 border border-amber-500/30">
+                      {activeCta.highlight}
+                    </span>
+                  </div>
+                  <p className="text-xs text-slate-400 mt-1.5 max-w-3xl leading-relaxed">
+                    {activeCta.description}
+                  </p>
+                </div>
+
+                {/* Typography and Colors Specs */}
+                <div className="flex flex-col items-start md:items-end gap-2 shrink-0">
+                  <div className="flex items-center gap-1.5 text-xs text-slate-300 font-medium">
+                    <Type className="w-3.5 h-3.5 text-orange-400" />
+                    <span>Font: <strong className="text-white">{activeCta.font}</strong></span>
+                  </div>
+                  <div className="flex items-center gap-1.5 text-xs text-slate-400">
+                    <span className="w-2.5 h-2.5 rounded-full bg-orange-500" />
+                    <span>Colors: {activeCta.colorScheme}</span>
+                  </div>
+                </div>
+              </div>
+
+              {/* Working Interactivity Hint */}
+              <div className="bg-gradient-to-r from-orange-950/60 via-slate-900 to-amber-950/60 border border-orange-500/20 rounded-2xl p-3 flex items-center gap-3 text-xs text-orange-200">
+                <div className="w-7 h-7 rounded-lg bg-orange-500/20 flex items-center justify-center shrink-0">
+                  <Sparkles className="w-4 h-4 text-orange-400" />
+                </div>
+                <span>
+                  <strong>Interactive Real Human Elements:</strong> {activeCta.interactivity}
+                </span>
+              </div>
+
+              {/* The CTA Section Preview Container */}
+              <div className="w-full flex justify-center">
+                <div className={`transition-all duration-300 w-full ${getContainerWidth()}`}>
+                  <ActiveCtaComponent isMobile={isForcedMobile} />
+                </div>
+              </div>
+            </div>
+          ) : (
+            /* View All CTAs */
+            <div className="flex flex-col gap-14">
+              <div className="flex items-center justify-between">
+                <div>
+                  <h2 className="text-2xl font-black text-white">All {ctasList.length} Responsive Call of Action Sections</h2>
+                  <p className="text-sm text-slate-400">
+                    High-performance fitness application cards, vibrant concentric wave ripples, North America 3D particle globes, and algorithmic trading execution banners.
+                  </p>
+                </div>
+              </div>
+
+              {ctasList.map((cta, idx) => {
+                const CtaComp = cta.component;
+                return (
+                  <div key={cta.id} className="bg-[#161b26] border border-white/10 rounded-3xl p-6 shadow-2xl space-y-4">
+                    <div className="flex flex-wrap items-center justify-between gap-3 pb-3 border-b border-white/10">
+                      <div className="flex items-center gap-3">
+                        <span className="w-7 h-7 rounded-xl bg-orange-600 text-white font-extrabold text-xs flex items-center justify-center">
+                          {idx + 1}
+                        </span>
+                        <div>
+                          <h3 className="text-lg font-bold text-white">{cta.name}</h3>
+                          <p className="text-xs text-slate-400">{cta.font} • {cta.colorScheme}</p>
+                        </div>
+                      </div>
+                      <div className="flex items-center gap-2">
+                        {cta.libraries.map((lib) => (
+                          <span key={lib} className="text-[10px] font-mono bg-black/60 text-orange-300 px-2 py-0.5 rounded border border-white/10">
+                            {lib}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+
+                    <div className="w-full">
+                      <CtaComp isMobile={isForcedMobile} />
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          )
+        )}
+
         {/* TAB: TESTIMONIALS SHOWCASE */}
         {activeTab === 'testimonials' && (
           viewMode === 'single' ? (
@@ -1725,18 +1957,31 @@ export function App() {
                 <div className="flex items-center gap-2 text-xs">
                   <span className="text-slate-400 font-semibold">Section:</span>
                   <select
-                    value={selectedAboutId ? `about:${selectedAboutId}` : `hero:${selectedHeroId}`}
+                    value={selectedCtaId ? `cta:${selectedCtaId}` : selectedAboutId ? `about:${selectedAboutId}` : `hero:${selectedHeroId}`}
                     onChange={(e) => {
                       const val = e.target.value;
-                      if (val.startsWith('about:')) {
+                      if (val.startsWith('cta:')) {
+                        setSelectedCtaId(val.replace('cta:', ''));
+                        setSelectedAboutId('');
+                      } else if (val.startsWith('about:')) {
                         setSelectedAboutId(val.replace('about:', ''));
+                        setSelectedCtaId('');
                       } else {
                         setSelectedHeroId(val.replace('hero:', ''));
+                        setSelectedCtaId('');
+                        setSelectedAboutId('');
                       }
                     }}
                     className="bg-slate-900 border border-white/20 rounded-xl px-3 py-1.5 text-xs text-white focus:outline-none focus:border-blue-400 cursor-pointer"
                   >
-                    <optgroup label="✨ About Sections (NEW)">
+                    <optgroup label="🔥 Call of Action (NEW)">
+                      {ctasList.map((c) => (
+                        <option key={c.id} value={`cta:${c.id}`}>
+                          {c.name}
+                        </option>
+                      ))}
+                    </optgroup>
+                    <optgroup label="✨ About Sections">
                       {aboutsList.map((a) => (
                         <option key={a.id} value={`about:${a.id}`}>
                           {a.name}
@@ -1761,7 +2006,9 @@ export function App() {
                 <ActiveHeaderComponent forcedMobile={isForcedMobile} />
               </div>
               <div className="rounded-2xl overflow-hidden shadow-2xl">
-                {selectedAboutId ? (
+                {selectedCtaId ? (
+                  <ActiveCtaComponent isMobile={isForcedMobile} />
+                ) : selectedAboutId ? (
                   <ActiveAboutComponent isMobile={isForcedMobile} />
                 ) : (
                   <ActiveHeroComponent isMobile={isForcedMobile} />
@@ -1775,8 +2022,8 @@ export function App() {
       {/* Footer */}
       <footer className="mt-auto py-8 border-t border-white/10 bg-[#161b26] text-center text-xs text-slate-500">
         <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between px-4 sm:px-8 gap-4">
-          <span>Human-Crafted Hero & Header Collection • React 19, Motion, Three.js & Tailwind CSS</span>
-          <span className="text-blue-400 font-mono">13 Interactive Heroes • 23 Headers • 1 About Section</span>
+          <span>Human-Crafted Hero, Header &amp; CTA Collection • React 19, Motion, Three.js &amp; Tailwind CSS</span>
+          <span className="text-orange-400 font-mono">6 Call of Action • 12 Testimonials • 10 Cards • 10 About • 13 Heroes • 23 Headers</span>
         </div>
       </footer>
     </div>
